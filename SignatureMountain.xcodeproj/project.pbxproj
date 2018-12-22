@@ -7,11 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02C040D753B177B616605BA2 /* Pods_SignatureMountain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E224A6A606ABA40AB07A543E /* Pods_SignatureMountain.framework */; };
 		0510FADC213A0D5600EC2AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510FADB213A0D5600EC2AEE /* AppDelegate.swift */; };
 		0510FADE213A0D5600EC2AEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510FADD213A0D5600EC2AEE /* ViewController.swift */; };
 		0510FAE1213A0D5600EC2AEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0510FADF213A0D5600EC2AEE /* Main.storyboard */; };
 		0510FAE3213A0D5900EC2AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0510FAE2213A0D5900EC2AEE /* Assets.xcassets */; };
 		0510FAE6213A0D5900EC2AEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0510FAE4213A0D5900EC2AEE /* LaunchScreen.storyboard */; };
+		0510FAF2213A108600EC2AEE /* signin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510FAF1213A108600EC2AEE /* signin.swift */; };
+		0515723F215327FA00D06DEE /* patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515723E215327FA00D06DEE /* patient.swift */; };
+		051572412158809400D06DEE /* matchingAppointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051572402158809400D06DEE /* matchingAppointments.swift */; };
+		053EA43C213B66470067270E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EA43B213B66470067270E /* Constants.swift */; };
+		053EA43E213B79000067270E /* SignatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EA43D213B78FF0067270E /* SignatureVC.swift */; };
+		059E9E752143580100AE8D13 /* GetDOBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E9E742143580000AE8D13 /* GetDOBVC.swift */; };
+		059E9E77214477CA00AE8D13 /* matchingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E9E76214477CA00AE8D13 /* matchingModels.swift */; };
+		059E9E79214F353900AE8D13 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E9E78214F353800AE8D13 /* RegisterVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,17 @@
 		0510FAE2213A0D5900EC2AEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0510FAE5213A0D5900EC2AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0510FAE7213A0D5900EC2AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0510FAF1213A108600EC2AEE /* signin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signin.swift; sourceTree = "<group>"; };
+		0515723E215327FA00D06DEE /* patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = patient.swift; sourceTree = "<group>"; };
+		051572402158809400D06DEE /* matchingAppointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchingAppointments.swift; sourceTree = "<group>"; };
+		053EA43B213B66470067270E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		053EA43D213B78FF0067270E /* SignatureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureVC.swift; sourceTree = "<group>"; };
+		059E9E742143580000AE8D13 /* GetDOBVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDOBVC.swift; sourceTree = "<group>"; };
+		059E9E76214477CA00AE8D13 /* matchingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchingModels.swift; sourceTree = "<group>"; };
+		059E9E78214F353800AE8D13 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		58643D916C1BE67388238D81 /* Pods-SignatureMountain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignatureMountain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SignatureMountain/Pods-SignatureMountain.debug.xcconfig"; sourceTree = "<group>"; };
+		5EF732B92A47D93718583EFB /* Pods-SignatureMountain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignatureMountain.release.xcconfig"; path = "Pods/Target Support Files/Pods-SignatureMountain/Pods-SignatureMountain.release.xcconfig"; sourceTree = "<group>"; };
+		E224A6A606ABA40AB07A543E /* Pods_SignatureMountain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SignatureMountain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C040D753B177B616605BA2 /* Pods_SignatureMountain.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +61,8 @@
 			children = (
 				0510FADA213A0D5600EC2AEE /* SignatureMountain */,
 				0510FAD9213A0D5600EC2AEE /* Products */,
+				9C991A93B57F0CE903806A54 /* Pods */,
+				A0BF765DC0976E0D0740A9FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +77,71 @@
 		0510FADA213A0D5600EC2AEE /* SignatureMountain */ = {
 			isa = PBXGroup;
 			children = (
-				0510FADB213A0D5600EC2AEE /* AppDelegate.swift */,
-				0510FADD213A0D5600EC2AEE /* ViewController.swift */,
-				0510FADF213A0D5600EC2AEE /* Main.storyboard */,
+				0510FAEF213A0F6A00EC2AEE /* Controller */,
+				0510FAEE213A0F6200EC2AEE /* View */,
+				0510FAED213A0F5C00EC2AEE /* Model */,
 				0510FAE2213A0D5900EC2AEE /* Assets.xcassets */,
-				0510FAE4213A0D5900EC2AEE /* LaunchScreen.storyboard */,
+				0510FAF0213A0F8B00EC2AEE /* Supporting Files */,
 				0510FAE7213A0D5900EC2AEE /* Info.plist */,
 			);
 			path = SignatureMountain;
+			sourceTree = "<group>";
+		};
+		0510FAED213A0F5C00EC2AEE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0510FAF1213A108600EC2AEE /* signin.swift */,
+				0515723E215327FA00D06DEE /* patient.swift */,
+				059E9E76214477CA00AE8D13 /* matchingModels.swift */,
+				051572402158809400D06DEE /* matchingAppointments.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0510FAEE213A0F6200EC2AEE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0510FADF213A0D5600EC2AEE /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0510FAEF213A0F6A00EC2AEE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0510FADD213A0D5600EC2AEE /* ViewController.swift */,
+				0510FADB213A0D5600EC2AEE /* AppDelegate.swift */,
+				053EA43D213B78FF0067270E /* SignatureVC.swift */,
+				059E9E742143580000AE8D13 /* GetDOBVC.swift */,
+				059E9E78214F353800AE8D13 /* RegisterVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0510FAF0213A0F8B00EC2AEE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0510FAE4213A0D5900EC2AEE /* LaunchScreen.storyboard */,
+				053EA43B213B66470067270E /* Constants.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C991A93B57F0CE903806A54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				58643D916C1BE67388238D81 /* Pods-SignatureMountain.debug.xcconfig */,
+				5EF732B92A47D93718583EFB /* Pods-SignatureMountain.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		A0BF765DC0976E0D0740A9FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E224A6A606ABA40AB07A543E /* Pods_SignatureMountain.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +151,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0510FAEA213A0D5900EC2AEE /* Build configuration list for PBXNativeTarget "SignatureMountain" */;
 			buildPhases = (
+				A1B5EBBDAB72E7F8B0311584 /* [CP] Check Pods Manifest.lock */,
 				0510FAD4213A0D5600EC2AEE /* Sources */,
 				0510FAD5213A0D5600EC2AEE /* Frameworks */,
 				0510FAD6213A0D5600EC2AEE /* Resources */,
+				96E31F1A78A5002343F4396D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,13 +212,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		96E31F1A78A5002343F4396D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SignatureMountain/Pods-SignatureMountain-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SignatureMountain/Pods-SignatureMountain-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A1B5EBBDAB72E7F8B0311584 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SignatureMountain-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0510FAD4213A0D5600EC2AEE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0510FAF2213A108600EC2AEE /* signin.swift in Sources */,
+				059E9E79214F353900AE8D13 /* RegisterVC.swift in Sources */,
 				0510FADE213A0D5600EC2AEE /* ViewController.swift in Sources */,
+				059E9E77214477CA00AE8D13 /* matchingModels.swift in Sources */,
 				0510FADC213A0D5600EC2AEE /* AppDelegate.swift in Sources */,
+				059E9E752143580100AE8D13 /* GetDOBVC.swift in Sources */,
+				051572412158809400D06DEE /* matchingAppointments.swift in Sources */,
+				0515723F215327FA00D06DEE /* patient.swift in Sources */,
+				053EA43C213B66470067270E /* Constants.swift in Sources */,
+				053EA43E213B79000067270E /* SignatureVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,37 +411,45 @@
 		};
 		0510FAEB213A0D5900EC2AEE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 58643D916C1BE67388238D81 /* Pods-SignatureMountain.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N876F6UP9Q;
 				INFOPLIST_FILE = SignatureMountain/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = RefinedSolutionsInc.SignatureMountain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
 		};
 		0510FAEC213A0D5900EC2AEE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5EF732B92A47D93718583EFB /* Pods-SignatureMountain.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N876F6UP9Q;
 				INFOPLIST_FILE = SignatureMountain/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = RefinedSolutionsInc.SignatureMountain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;
 		};
