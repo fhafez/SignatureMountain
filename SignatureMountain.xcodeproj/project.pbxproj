@@ -9,24 +9,27 @@
 /* Begin PBXBuildFile section */
 		02C040D753B177B616605BA2 /* Pods_SignatureMountain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E224A6A606ABA40AB07A543E /* Pods_SignatureMountain.framework */; };
 		0510FADC213A0D5600EC2AEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510FADB213A0D5600EC2AEE /* AppDelegate.swift */; };
-		0510FADE213A0D5600EC2AEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510FADD213A0D5600EC2AEE /* ViewController.swift */; };
+		0510FADE213A0D5600EC2AEE /* SigninVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510FADD213A0D5600EC2AEE /* SigninVC.swift */; };
 		0510FAE1213A0D5600EC2AEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0510FADF213A0D5600EC2AEE /* Main.storyboard */; };
 		0510FAE3213A0D5900EC2AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0510FAE2213A0D5900EC2AEE /* Assets.xcassets */; };
 		0510FAE6213A0D5900EC2AEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0510FAE4213A0D5900EC2AEE /* LaunchScreen.storyboard */; };
 		0510FAF2213A108600EC2AEE /* signin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510FAF1213A108600EC2AEE /* signin.swift */; };
 		0515723F215327FA00D06DEE /* patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515723E215327FA00D06DEE /* patient.swift */; };
 		051572412158809400D06DEE /* matchingAppointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051572402158809400D06DEE /* matchingAppointments.swift */; };
+		05271DF021D2EDD900AFF78C /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05271DEF21D2EDD900AFF78C /* Connectivity.swift */; };
 		053EA43C213B66470067270E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EA43B213B66470067270E /* Constants.swift */; };
 		053EA43E213B79000067270E /* SignatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EA43D213B78FF0067270E /* SignatureVC.swift */; };
 		059E9E752143580100AE8D13 /* GetDOBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E9E742143580000AE8D13 /* GetDOBVC.swift */; };
 		059E9E77214477CA00AE8D13 /* matchingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E9E76214477CA00AE8D13 /* matchingModels.swift */; };
 		059E9E79214F353900AE8D13 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E9E78214F353800AE8D13 /* RegisterVC.swift */; };
+		05FA91F121D44B4E0061616D /* StartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FA91F021D44B4E0061616D /* StartVC.swift */; };
+		05FA91F521D53DE20061616D /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FA91F421D53DE20061616D /* SettingsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0510FAD8213A0D5600EC2AEE /* SignatureMountain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SignatureMountain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0510FADB213A0D5600EC2AEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0510FADD213A0D5600EC2AEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0510FADD213A0D5600EC2AEE /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
 		0510FAE0213A0D5600EC2AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0510FAE2213A0D5900EC2AEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0510FAE5213A0D5900EC2AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -34,11 +37,14 @@
 		0510FAF1213A108600EC2AEE /* signin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signin.swift; sourceTree = "<group>"; };
 		0515723E215327FA00D06DEE /* patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = patient.swift; sourceTree = "<group>"; };
 		051572402158809400D06DEE /* matchingAppointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchingAppointments.swift; sourceTree = "<group>"; };
+		05271DEF21D2EDD900AFF78C /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		053EA43B213B66470067270E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		053EA43D213B78FF0067270E /* SignatureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureVC.swift; sourceTree = "<group>"; };
 		059E9E742143580000AE8D13 /* GetDOBVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDOBVC.swift; sourceTree = "<group>"; };
 		059E9E76214477CA00AE8D13 /* matchingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchingModels.swift; sourceTree = "<group>"; };
 		059E9E78214F353800AE8D13 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		05FA91F021D44B4E0061616D /* StartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartVC.swift; sourceTree = "<group>"; };
+		05FA91F421D53DE20061616D /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		58643D916C1BE67388238D81 /* Pods-SignatureMountain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignatureMountain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SignatureMountain/Pods-SignatureMountain.debug.xcconfig"; sourceTree = "<group>"; };
 		5EF732B92A47D93718583EFB /* Pods-SignatureMountain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SignatureMountain.release.xcconfig"; path = "Pods/Target Support Files/Pods-SignatureMountain/Pods-SignatureMountain.release.xcconfig"; sourceTree = "<group>"; };
 		E224A6A606ABA40AB07A543E /* Pods_SignatureMountain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SignatureMountain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -109,11 +115,14 @@
 		0510FAEF213A0F6A00EC2AEE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0510FADD213A0D5600EC2AEE /* ViewController.swift */,
-				0510FADB213A0D5600EC2AEE /* AppDelegate.swift */,
+				05FA91F021D44B4E0061616D /* StartVC.swift */,
+				0510FADD213A0D5600EC2AEE /* SigninVC.swift */,
 				053EA43D213B78FF0067270E /* SignatureVC.swift */,
 				059E9E742143580000AE8D13 /* GetDOBVC.swift */,
 				059E9E78214F353800AE8D13 /* RegisterVC.swift */,
+				05271DEF21D2EDD900AFF78C /* Connectivity.swift */,
+				0510FADB213A0D5600EC2AEE /* AppDelegate.swift */,
+				05FA91F421D53DE20061616D /* SettingsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -262,11 +271,14 @@
 			files = (
 				0510FAF2213A108600EC2AEE /* signin.swift in Sources */,
 				059E9E79214F353900AE8D13 /* RegisterVC.swift in Sources */,
-				0510FADE213A0D5600EC2AEE /* ViewController.swift in Sources */,
+				05FA91F521D53DE20061616D /* SettingsVC.swift in Sources */,
+				0510FADE213A0D5600EC2AEE /* SigninVC.swift in Sources */,
 				059E9E77214477CA00AE8D13 /* matchingModels.swift in Sources */,
+				05FA91F121D44B4E0061616D /* StartVC.swift in Sources */,
 				0510FADC213A0D5600EC2AEE /* AppDelegate.swift in Sources */,
 				059E9E752143580100AE8D13 /* GetDOBVC.swift in Sources */,
 				051572412158809400D06DEE /* matchingAppointments.swift in Sources */,
+				05271DF021D2EDD900AFF78C /* Connectivity.swift in Sources */,
 				0515723F215327FA00D06DEE /* patient.swift in Sources */,
 				053EA43C213B66470067270E /* Constants.swift in Sources */,
 				053EA43E213B79000067270E /* SignatureVC.swift in Sources */,

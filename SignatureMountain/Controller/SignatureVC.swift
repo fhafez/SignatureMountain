@@ -23,7 +23,7 @@ class SignatureVC: UIViewController {
     @IBOutlet weak var CancelBtn: UIButton!
     @IBOutlet weak var SignatureBoxImageView: UIImageView!
     
-    var mainViewController: ViewController!
+    var mainViewController: StartVC!
     
     var delegate : canBeRestarted?
     
@@ -60,7 +60,7 @@ class SignatureVC: UIViewController {
         CancelBtn.layer.cornerRadius = 8.0
         ClearBtn.layer.cornerRadius = 8.0
          */
-        SignatureBoxImageView.layer.cornerRadius = 8.0
+        SignatureBoxImageView.layer.cornerRadius = 20.0
         SignatureBoxImageView.layer.borderColor = UIColor(red: 81/255, green: 81/255, blue: 81/255, alpha: 1.0).cgColor
         SignatureBoxImageView.layer.borderWidth = 1.0
         
@@ -139,12 +139,13 @@ class SignatureVC: UIViewController {
         largestX += 10
         largestY += 10
         
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
-        SVProgressHUD.setDefaultStyle(.dark)
+        SVProgressHUD.setMaximumDismissTimeInterval(4)
+        SVProgressHUD.setMaximumDismissTimeInterval(4)
+        SVProgressHUD.setDefaultStyle(.light)
         SVProgressHUD.show(withStatus: "Signing in")
         SVProgressHUD.setShouldTintImages(false)
-        SVProgressHUD.setImageViewSize(CGSize(width: 200, height: 200))
+        SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
+        SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
 
         let utf8str = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"><svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"\(largestX / 3)\" height=\"\(largestY / 3)\">\(self.sig)".data(using: String.Encoding.utf8)
         

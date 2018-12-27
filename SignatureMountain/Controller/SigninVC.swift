@@ -143,33 +143,60 @@ extension UIView {
 }
 
 
-class ViewController: UIViewController, canBeRestarted {
+class SigninVC: UIViewController, canBeRestarted {
 
-    @IBOutlet weak var SignoutBtn: UIButton!
-    @IBOutlet weak var SigninBtn: UIButton!
+    @IBOutlet weak var CancelBtn: UIButton!
+    @IBOutlet weak var NextBtn: UIButton!
     @IBOutlet weak var ClearBtn: UIButton!
-    @IBOutlet weak var RegisterBtn: UIButton!
     @IBOutlet weak var Firstname: UITextField!
     @IBOutlet weak var Lastname: UITextField!
+    @IBOutlet weak var PageTitle: UILabel!
     
+    var delegate : StartVC?
+    var _pageTitle: String?
+    var _direction: String?
+
     var todaysAppts: JSON = JSON.null
     
     @IBAction func clearBtnPressed(_ sender: Any) {
         Firstname.text = ""
         Lastname.text = ""
     }
-    @IBAction func registerBtnPressed(_ sender: Any) {
-        self.performSegue(withIdentifier: "RegisterVC", sender: nil)
+
+    @IBAction func nextBtnPressed(_ sender: Any) {
+        prepareHUD()
+        
+        if _direction == "in" {
+            signin()
+
+        } else if _direction == "out" {
+            signout()
+        }
     }
     
-    @IBAction func SigninBtnPressed(_ sender: Any) {
-        
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
-        SVProgressHUD.setDefaultStyle(.dark)
+    @IBAction func CancelBtnPressed(_ sender: Any) {
+        delegate?.dismiss(animated: true, completion: nil)
+    }
+    
+    func setPageTitle(pageTitle: String) {
+        _pageTitle = pageTitle
+    }
+    
+    func setDirection(direction: String) {
+        _direction = direction
+    }
+    
+    func prepareHUD() {
+        SVProgressHUD.setMaximumDismissTimeInterval(4)
+        SVProgressHUD.setMaximumDismissTimeInterval(4)
+        SVProgressHUD.setDefaultStyle(.light)
         SVProgressHUD.setShouldTintImages(false)
-        SVProgressHUD.setImageViewSize(CGSize(width: 200, height: 200))
-
+        SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
+        SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
+    }
+    
+    func signin() {
+        
         if Firstname.text?.count == 0 || Lastname.text?.count == 0 {
             let alert: UIAlertController = UIAlertController(title: "Required Field Missing", message: "Firstname and Lastname must be provided", preferredStyle: .alert)
             
@@ -179,11 +206,12 @@ class ViewController: UIViewController, canBeRestarted {
         } else {
             
             SVProgressHUD.show()
-
+            
             let matchingModels: MatchingModels = MatchingModels(firstname: Firstname.text!, lastname: Lastname.text!)
             matchingModels.getMatchingPatients {
+                
                 SVProgressHUD.dismiss()
-
+                
                 debugPrint("Got the details")
                 debugPrint(matchingModels)
                 
@@ -203,48 +231,8 @@ class ViewController: UIViewController, canBeRestarted {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SignatureVC" {
-            if let getSignatureVC = segue.destination as? SignatureVC {
-                if let signinModel = sender as? JSON {
-                    getSignatureVC.signinModel = signinModel
-                    getSignatureVC.delegate = self
-                    getSignatureVC.mainViewController = self
-                }
-            }
-        } else if segue.identifier == "getDOBVC" {
-            if let getDOBVC = segue.destination as? GetDOBVC {
-                
-                if let params = sender as? [Any] {
-                    if let operation = params[1] as? String {
-                        if let matchingModels = params[0] as? MatchingModels {
-                            getDOBVC.matchingModels = matchingModels
-                            getDOBVC.operation = operation
-                            getDOBVC.delegate = self
-                            getDOBVC.mainViewController = self
-                        }
-                    }
-                }
-                
-            }
-        } else if segue.identifier == "RegisterVC" {
-            if let registerVC = segue.destination as? RegisterVC {
-                registerVC.delegate = self
-                registerVC.mainViewController = self
-            }
-        }
-    }
-
-    
-    @IBAction func SignoutBtnPressed(_ sender: Any) {
+    func signout() {
         
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setShouldTintImages(false)
-        SVProgressHUD.setImageViewSize(CGSize(width: 200, height: 200))
-
-
         if Firstname.text!.isEmpty || Lastname.text!.isEmpty {
             let alert: UIAlertController = UIAlertController(title: "Required Field Missing", message: "Firstname and Lastname must be provided", preferredStyle: .alert)
             
@@ -254,7 +242,7 @@ class ViewController: UIViewController, canBeRestarted {
         } else {
             
             SVProgressHUD.show(withStatus: "Signing Out")
-
+            
             // look for matching patient names
             let matchingModels: MatchingModels = MatchingModels(firstname: Firstname.text!, lastname: Lastname.text!)
             matchingModels.getMatchingPatients {
@@ -284,12 +272,6 @@ class ViewController: UIViewController, canBeRestarted {
     }
     
     func signoutPatient(patientModel: MatchingModels) {
-        
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setShouldTintImages(false)
-        SVProgressHUD.setImageViewSize(CGSize(width: 200, height: 200))
         
         if patientModel.signedIn() == false {
             if let failImage = UIImage(named: "failedIndicator") {
@@ -325,6 +307,7 @@ class ViewController: UIViewController, canBeRestarted {
                     if let successImage = UIImage(named: "successIndicator") {
                         self.clearAllFields()
                         SVProgressHUD.show(successImage, status: "Signout Successful.  Thank you")
+                        self.delegate?.dismiss(animated: true, completion: nil)
                     }
                 })
             }
@@ -355,44 +338,56 @@ class ViewController: UIViewController, canBeRestarted {
         }
         
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !Connectivity.isConnectedToInternet {
+            print("not connected to the internet")
+            let alert: UIAlertController = UIAlertController(title: "Connection Failed", message: "No Connection to the Internet", preferredStyle: .alert)
+            let retryAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(retryAction)
+            present(alert, animated: true, completion: nil)
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        SigninBtn.layer.cornerRadius = buttonCornerRadius
-        SignoutBtn.layer.cornerRadius = buttonCornerRadius
-        ClearBtn.layer.cornerRadius = buttonCornerRadius
-        RegisterBtn.layer.cornerRadius = registerButtonCornerRadius
         
-        SigninBtn.layer.borderColor = buttonBorderColor
-        SigninBtn.layer.borderWidth = buttonBorderWidth
-        SignoutBtn.layer.borderColor = buttonBorderColor
-        SignoutBtn.layer.borderWidth = buttonBorderWidth
-        ClearBtn.layer.borderColor = buttonBorderColor
-        ClearBtn.layer.borderWidth = buttonBorderWidth
-        RegisterBtn.layer.borderColor = buttonBorderColor
-        RegisterBtn.layer.borderWidth = registerButtonBorderWidth
-
-        
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    @IBAction func SigninDobBtnPressed(_ sender: Any) {
-    }
-    
-    @IBAction func DobBackBtnPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        PageTitle.text = _pageTitle
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     func clearAllFields() {
         Firstname.text = ""
         Lastname.text = ""
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SignatureVC" {
+            if let getSignatureVC = segue.destination as? SignatureVC {
+                if let signinModel = sender as? JSON {
+                    getSignatureVC.signinModel = signinModel
+                    getSignatureVC.delegate = self
+                    getSignatureVC.mainViewController = delegate
+                }
+            }
+        } else if segue.identifier == "getDOBVC" {
+            if let getDOBVC = segue.destination as? GetDOBVC {
+                
+                if let params = sender as? [Any] {
+                    if let operation = params[1] as? String {
+                        if let matchingModels = params[0] as? MatchingModels {
+                            getDOBVC.matchingModels = matchingModels
+                            getDOBVC.operation = operation
+                            getDOBVC.delegate = self
+                            getDOBVC.mainViewController = delegate
+                        }
+                    }
+                }
+            }
+        }
     }
 
 

@@ -15,8 +15,8 @@ import Alamofire
 class GetDOBVC: UIViewController {
     
     var matchingModels: MatchingModels = MatchingModels()
-    var mainViewController: ViewController!
-    var delegate: ViewController!
+    var mainViewController: StartVC!
+    var delegate: SigninVC!
     var operation: String = ""
     
     @IBOutlet weak var backBtn: UIButton!
@@ -26,9 +26,9 @@ class GetDOBVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        continueBtn.layer.cornerRadius = 8.0
-        backBtn.layer.cornerRadius = 8.0
-        
+        dob.backgroundColor = UIColor.white
+        dob.setValue(0.9, forKeyPath: "alpha")
+        dob.layer.cornerRadius = 20
     }
     
     @IBAction func continueBtnPressed(_ sender: Any) {

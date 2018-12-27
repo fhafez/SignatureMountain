@@ -23,14 +23,24 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var ClearBtn: UIButton!
     @IBOutlet weak var CancelBtn: UIButton!
     
-    var mainViewController: ViewController!
-    var delegate : ViewController?
+    var delegate : StartVC?
 
     @IBAction func abc(_ sender: Any) {
         view.endEditing(true)
     }
     @IBAction func dobTouched(_ sender: Any) {
         view.endEditing(true)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if !Connectivity.isConnectedToInternet {
+            print("not connected to the internet")
+            let alert: UIAlertController = UIAlertController(title: "Connection Failed", message: "No Connection to the Internet", preferredStyle: .alert)
+            let retryAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(retryAction)
+            present(alert, animated: true, completion: nil)
+            
+        }
     }
     
     override func viewDidLoad() {
@@ -72,13 +82,14 @@ class RegisterVC: UIViewController {
     
     @IBAction func registerBtnPressed(_ sender: Any) {
 
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
+        SVProgressHUD.setMaximumDismissTimeInterval(5)
+        SVProgressHUD.setMaximumDismissTimeInterval(5)
         SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.setShouldTintImages(false)
-        SVProgressHUD.setImageViewSize(CGSize(width: 200, height: 200))
+        SVProgressHUD.setFont(UIFont(name: "Avenir", size: 24.0)!)
+        SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
 
-        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.dark)
+        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.light)
         SVProgressHUD.show(withStatus: "Registering")
 
         if let firstname = FirstName.text {
@@ -90,8 +101,8 @@ class RegisterVC: UIViewController {
                         if patient.getId() > 0 {
                             if let successImage = UIImage(named: "successIndicator") {
                                 SVProgressHUD.show(successImage, status: "Registration Successful.  Please sign in now")
-                                self.delegate?.clearAllFields()
-                                self.mainViewController?.dismiss(animated: true, completion: nil)
+                                //self.delegate?.clearAllFields()
+                                self.delegate?.dismiss(animated: true, completion: nil)
                             }
                         } else {
                             if let failImage = UIImage(named: "failedIndicator") {
