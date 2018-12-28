@@ -12,7 +12,6 @@
 		0510FADE213A0D5600EC2AEE /* SigninVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510FADD213A0D5600EC2AEE /* SigninVC.swift */; };
 		0510FAE1213A0D5600EC2AEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0510FADF213A0D5600EC2AEE /* Main.storyboard */; };
 		0510FAE3213A0D5900EC2AEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0510FAE2213A0D5900EC2AEE /* Assets.xcassets */; };
-		0510FAE6213A0D5900EC2AEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0510FAE4213A0D5900EC2AEE /* LaunchScreen.storyboard */; };
 		0510FAF2213A108600EC2AEE /* signin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0510FAF1213A108600EC2AEE /* signin.swift */; };
 		0515723F215327FA00D06DEE /* patient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0515723E215327FA00D06DEE /* patient.swift */; };
 		051572412158809400D06DEE /* matchingAppointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 051572402158809400D06DEE /* matchingAppointments.swift */; };
@@ -32,7 +31,6 @@
 		0510FADD213A0D5600EC2AEE /* SigninVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninVC.swift; sourceTree = "<group>"; };
 		0510FAE0213A0D5600EC2AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0510FAE2213A0D5900EC2AEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0510FAE5213A0D5900EC2AEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0510FAE7213A0D5900EC2AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0510FAF1213A108600EC2AEE /* signin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = signin.swift; sourceTree = "<group>"; };
 		0515723E215327FA00D06DEE /* patient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = patient.swift; sourceTree = "<group>"; };
@@ -130,7 +128,6 @@
 		0510FAF0213A0F8B00EC2AEE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				0510FAE4213A0D5900EC2AEE /* LaunchScreen.storyboard */,
 				053EA43B213B66470067270E /* Constants.swift */,
 			);
 			path = "Supporting Files";
@@ -213,7 +210,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0510FAE6213A0D5900EC2AEE /* LaunchScreen.storyboard in Resources */,
 				0510FAE3213A0D5900EC2AEE /* Assets.xcassets in Resources */,
 				0510FAE1213A0D5600EC2AEE /* Main.storyboard in Resources */,
 			);
@@ -294,14 +290,6 @@
 				0510FAE0213A0D5600EC2AEE /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0510FAE4213A0D5900EC2AEE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0510FAE5213A0D5900EC2AEE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

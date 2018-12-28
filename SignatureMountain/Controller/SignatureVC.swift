@@ -141,7 +141,7 @@ class SignatureVC: UIViewController {
         
         SVProgressHUD.setMaximumDismissTimeInterval(4)
         SVProgressHUD.setMaximumDismissTimeInterval(4)
-        SVProgressHUD.setDefaultStyle(.light)
+        SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.show(withStatus: "Signing in")
         SVProgressHUD.setShouldTintImages(false)
         SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
@@ -184,8 +184,8 @@ class SignatureVC: UIViewController {
         debugPrint(params)
         debugPrint(base64EncodedSig)
         
-        Alamofire.request(commitSigninURL, method: .post, parameters: params, encoding: JSONEncoding.default)
-                .authenticate(user: user, password: password)
+        Alamofire.request(settings["commitSigninURL"]!, method: .post, parameters: params, encoding: JSONEncoding.default)
+                .authenticate(user: settings["user"]!, password: settings["password"]!)
                 .responseJSON {
                     response in
                     debugPrint(response)

@@ -319,8 +319,8 @@ class SigninVC: UIViewController, canBeRestarted {
         let params: [String: String] = [:]
         
         // download the matching patient here
-        Alamofire.request(todaysAppointmentsURL, method: .get, parameters: params)
-            .authenticate(user: user, password: password)
+        Alamofire.request(settings["todaysAppointmentsURL"]!, method: .get, parameters: params)
+            .authenticate(user: settings["user"]!, password: settings["password"]!)
             .responseJSON {
                 response in
                 if response.result.isSuccess {

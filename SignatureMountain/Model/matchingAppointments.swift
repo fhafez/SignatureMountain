@@ -45,8 +45,8 @@ class MatchingAppointments {
     
     func signoutPatient(completed: @escaping DetailsRetrieved) {
 
-        Alamofire.request(todaysAppointmentsURL, method: .get)
-            .authenticate(user: user, password: password)
+        Alamofire.request(settings["todaysAppointmentsURL"]!, method: .get)
+            .authenticate(user: settings["user"]!, password: settings["password"]!)
             .responseJSON {
                 response in
                 if response.result.isSuccess {
@@ -65,8 +65,8 @@ class MatchingAppointments {
     func getTodaysAppointments(completed: @escaping DetailsRetrieved) {
         
         // download the matching patient here
-        Alamofire.request(todaysAppointmentsURL, method: .get)
-            .authenticate(user: user, password: password)
+        Alamofire.request(settings["todaysAppointmentsURL"]!, method: .get)
+            .authenticate(user: settings["user"]!, password: settings["password"]!)
             .responseJSON {
                 response in
                 if response.result.isSuccess {

@@ -142,8 +142,8 @@ class Signin {
         let params: [String: String] = ["firstname": _firstname, "lastname": _lastname]
         
         // download the matching patient here
-        Alamofire.request(matchPatientsURL, method: .get, parameters: params)
-            .authenticate(user: user, password: password)
+        Alamofire.request(settings["matchPatientsURL"]!, method: .get, parameters: params)
+            .authenticate(user: settings["user"]!, password: settings["password"]!)
             .responseJSON {
                 response in
                 if response.result.isSuccess {

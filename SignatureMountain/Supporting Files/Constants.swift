@@ -9,13 +9,7 @@
 import Foundation
 import UIKit
 
-let user = "fadi"
-let password = "fadi"
-let commitSigninURL = "http://192.168.1.139/~fadihafez/signin-template/php/signinJS.php/"
-let matchPatientsURL = "http://192.168.1.139/~fadihafez/signin-template/php/matchPatients.php/"
-let registerPatientURL = "http://192.168.1.139/~fadihafez/signin-template/php/registerJS.php/"
-let todaysAppointmentsURL = "http://192.168.1.139/~fadihafez/signin-template/php/signinJS.php/appointments/"
-let signoutAppointmentURL = "http://192.168.1.139/~fadihafez/signin-template/php/signinJS.php/"
+var settings: [String: String] = [:]
 
 let buttonCornerRadius:CGFloat = 40.0
 let buttonBorderWidth:CGFloat = 3.0
@@ -29,3 +23,4 @@ typealias DetailsRetrieved = () -> ()
 enum SaveObjectError: Error {
     case mandatoryFieldsNotProvided
 }
+

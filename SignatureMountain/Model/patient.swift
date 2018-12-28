@@ -37,14 +37,14 @@ class Patient {
         let date = dateFormatter.string(from: currentDate)
         
         let params: [String: String] = ["client_id": "\(self._id!)", "signout_date": date]
-        let signoutURL = signoutAppointmentURL + "\(appointment_id)"
+        let signoutURL = settings["signoutAppointmentURL"]! + "\(appointment_id)"
         
         // register the patient into the DB
 //        let request = Alamofire.request(signoutURL, method: .put, parameters: params, encoding: JSONEncoding.default)
 //        debugPrint(request)
         
         Alamofire.request(signoutURL, method: .put, parameters: params, encoding: JSONEncoding.default)
-            .authenticate(user: user, password: password)
+            .authenticate(user: settings["user"]!, password: settings["password"]!)
             .validate()
             .responseJSON {
                 response in
@@ -81,8 +81,8 @@ class Patient {
         }
         
         // register the patient into the DB
-        Alamofire.request(registerPatientURL, method: .post, parameters: params, encoding: JSONEncoding.default)
-            .authenticate(user: user, password: password)
+        Alamofire.request(settings["registerPatientURL"]!, method: .post, parameters: params, encoding: JSONEncoding.default)
+            .authenticate(user: settings["user"]!, password: settings["password"]!)
             .validate()
             .responseJSON {
                 response in

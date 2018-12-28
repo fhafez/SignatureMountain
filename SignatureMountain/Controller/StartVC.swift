@@ -13,6 +13,8 @@ class StartVC: UIViewController {
 
     var _direction: String?
     
+    let defaults = UserDefaults.standard
+    
     @IBAction func gotoSignin(_ sender: Any) {
         _direction = "in"
         self.performSegue(withIdentifier: "gotoSigninout", sender: nil)

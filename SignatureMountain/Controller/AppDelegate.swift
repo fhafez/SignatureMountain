@@ -16,6 +16,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        print(NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).last! as String)
+
+        let defaults = UserDefaults.standard
+        let baseURLValue: String
+        let username: String
+        let password: String
+        
+        if let settingsDict = defaults.dictionary(forKey: "settings") {
+            baseURLValue = settingsDict["baseURL"] as! String
+            username = settingsDict["user"] as! String
+            password = settingsDict["password"] as! String
+
+            settings["baseURL"] = baseURLValue
+            settings["user"] = username
+            settings["password"] = password
+            settings["commitSigninURL"] = "\(baseURLValue)php/signinJS.php/"
+            settings["matchPatientsURL"] = "\(baseURLValue)php/matchPatients.php/"
+            settings["registerPatientURL"] = "\(baseURLValue)php/registerJS.php/"
+            settings["todaysAppointmentsURL"] = "\(baseURLValue)php/signinJS.php/appointments/"
+            settings["signoutAppointmentURL"] = "\(baseURLValue)php/signinJS.php/"
+        }
+        
         return true
     }
 

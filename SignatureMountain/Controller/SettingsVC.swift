@@ -32,6 +32,42 @@ import UIKit
 
 class SettingsVC: UIViewController {
     
+    let defaults = UserDefaults.standard
+    @IBOutlet weak var baseURL: UITextField!
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+    
+    @IBAction func backBtnPressed(_ sender: Any) {
+        
+        // save the data to UserDefaults
+        if let baseURLValue = self.baseURL.text {
+        
+            settings["baseURL"] = baseURLValue
+            settings["user"] = self.username.text
+            settings["password"] = self.password.text
+            settings["commitSigninURL"] = "\(baseURLValue)php/signinJS.php/"
+            settings["matchPatientsURL"] = "\(baseURLValue)php/matchPatients.php/"
+            settings["registerPatientURL"] = "\(baseURLValue)php/registerJS.php/"
+            settings["todaysAppointmentsURL"] = "\(baseURLValue)php/signinJS.php/appointments/"
+            settings["signoutAppointmentURL"] = "\(baseURLValue)php/signinJS.php/"
+            
+            defaults.set(settings, forKey: "settings")
+        }
+        
+        //defaults.setValue(settings, forKey: "settings")
+        dismiss(animated: true, completion: nil)
+    }
+    
+    override func viewDidLoad() {
+        // nothing yet
+        
+        if let settingsDict = defaults.dictionary(forKey: "settings") {
+            baseURL.text = settingsDict["baseURL"] as? String
+            username.text = settingsDict["user"] as? String
+            password.text = settingsDict["password"] as? String
+        }
+        
+    }
 
     
 }
