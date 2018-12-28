@@ -205,6 +205,8 @@ class SigninVC: UIViewController, canBeRestarted {
             present(alert, animated: true, completion: nil)
         } else {
             
+            // hide the keyboard
+            DismissKeyboard()
             SVProgressHUD.show()
             
             let matchingModels: MatchingModels = MatchingModels(firstname: Firstname.text!, lastname: Lastname.text!)
@@ -230,6 +232,11 @@ class SigninVC: UIViewController, canBeRestarted {
             }
         }
     }
+    
+    // hide the keyboard
+    @objc func DismissKeyboard() {
+        view.endEditing(true)
+    }
 
     func signout() {
         
@@ -241,6 +248,7 @@ class SigninVC: UIViewController, canBeRestarted {
             present(alert, animated: true, completion: nil)
         } else {
             
+            DismissKeyboard()
             SVProgressHUD.show(withStatus: "Signing Out")
             
             // look for matching patient names

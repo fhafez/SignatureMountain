@@ -73,13 +73,6 @@ class RegisterVC: UIViewController {
         view.endEditing(true)
     }
 
-    
-    /*
-    @IBAction func dobChanged(_ sender: Any) {
-        view.endEditing(true)
-    }
-    */
-    
     @IBAction func registerBtnPressed(_ sender: Any) {
 
         SVProgressHUD.setMaximumDismissTimeInterval(5)
@@ -89,12 +82,13 @@ class RegisterVC: UIViewController {
         SVProgressHUD.setFont(UIFont(name: "Avenir", size: 24.0)!)
         SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
 
-        SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.light)
+        SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.show(withStatus: "Registering")
 
         if let firstname = FirstName.text {
             if let lastname = LastName.text {
                 let patient = Patient(firstname: firstname, lastname: lastname, dob: DOB.date)
+                SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.light)
                 do {
                     try patient.save {
                         
@@ -102,7 +96,8 @@ class RegisterVC: UIViewController {
                             if let successImage = UIImage(named: "successIndicator") {
                                 SVProgressHUD.show(successImage, status: "Registration Successful.  Please sign in now")
                                 //self.delegate?.clearAllFields()
-                                self.delegate?.dismiss(animated: true, completion: nil)
+                                //self.delegate?.dismiss(animated: true, completion: nil)
+                                self.navigationController?.popToRootViewController(animated: true)
                             }
                         } else {
                             if let failImage = UIImage(named: "failedIndicator") {
@@ -128,7 +123,8 @@ class RegisterVC: UIViewController {
     }
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
-        delegate?.dismiss(animated: true, completion: nil)
+        //delegate?.dismiss(animated: true, completion: nil)
+        navigationController?.popToRootViewController(animated: true)
     }
     
 }

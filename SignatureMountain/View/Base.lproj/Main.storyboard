@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="h4K-k3-ZLg">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vCI-0G-Ues">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
@@ -74,12 +74,12 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="iV8-hc-pPo" userLabel="Buttons Stack">
-                                <rect key="frame" x="262" y="270" width="500" height="80"/>
+                                <rect key="frame" x="387" y="270" width="250" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdS-9j-SBP" userLabel="SignoutBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdS-9j-SBP" userLabel="SignoutBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="Dwp-se-xr8"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Dwp-se-xr8"/>
                                             <constraint firstAttribute="height" constant="80" id="t9U-52-CP0"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
@@ -102,9 +102,8 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYN-k8-gdk" userLabel="ClearBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
-                                        <rect key="frame" x="260" y="0.0" width="240" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="250" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="8MV-qD-iVQ"/>
                                             <constraint firstAttribute="height" constant="80" id="sPl-Bc-pbU"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
@@ -128,7 +127,7 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="500" id="3Bp-mL-3mc"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="3Bp-mL-3mc"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  SIGNING IN  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJX-VP-6Tx">
@@ -163,8 +162,8 @@
                         <outlet property="Lastname" destination="cnX-A3-kTu" id="wFT-gc-R41"/>
                         <outlet property="NextBtn" destination="F7f-MN-fkx" id="UL8-41-FH8"/>
                         <outlet property="PageTitle" destination="ZJX-VP-6Tx" id="C87-PT-AZs"/>
-                        <segue destination="pfh-dj-v23" kind="showDetail" identifier="SignatureVC" id="79H-mk-RdJ"/>
-                        <segue destination="OEY-J9-Br6" kind="showDetail" identifier="getDOBVC" id="r5b-bM-RnO"/>
+                        <segue destination="pfh-dj-v23" kind="show" identifier="SignatureVC" id="79H-mk-RdJ"/>
+                        <segue destination="OEY-J9-Br6" kind="show" identifier="getDOBVC" id="r5b-bM-RnO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -290,14 +289,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WG9-13-zOp"/>
                     </view>
+                    <navigationItem key="navigationItem" id="A9s-aX-72f"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="gotoSigninout" modalTransitionStyle="coverVertical" id="5T3-Ya-0M0"/>
-                        <segue destination="o9W-kC-Gnn" kind="presentation" identifier="gotoRegister" id="fxM-oV-wcw"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="gotoSigninout" id="5T3-Ya-0M0"/>
+                        <segue destination="o9W-kC-Gnn" kind="show" identifier="gotoRegister" id="fxM-oV-wcw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mlx-DK-fmG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-241.40624999999997" y="362.5"/>
+            <point key="canvasLocation" x="482.81249999999994" y="362.5"/>
         </scene>
         <!--getBirthdateVC-->
         <scene sceneID="yHm-Nj-OVt">
@@ -313,14 +313,14 @@
                                 <color key="backgroundColor" red="0.71408420139999995" green="0.049002488740000003" blue="0.2425642449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <datePicker clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXA-2W-vB9">
-                                <rect key="frame" x="352" y="140" width="320" height="216"/>
+                                <rect key="frame" x="352" y="190" width="320" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <date key="date" timeIntervalSinceReferenceDate="-799188977.16709137">
                                     <!--1975-09-05 03:03:42 +0000-->
                                 </date>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="YNH-iY-bqm">
-                                <rect key="frame" x="262" y="406" width="500" height="80"/>
+                                <rect key="frame" x="262" y="456" width="500" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvG-Wm-PNM" userLabel="SigninBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
@@ -382,7 +382,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please provide your date of birth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPx-vR-fGI">
-                                <rect key="frame" x="322" y="80" width="380" height="28"/>
+                                <rect key="frame" x="322" y="130" width="380" height="28"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -418,12 +418,12 @@
                         <outlet property="backBtn" destination="9u2-lp-n68" id="isp-Ib-EqP"/>
                         <outlet property="continueBtn" destination="uvG-Wm-PNM" id="QCo-Yr-WeW"/>
                         <outlet property="dob" destination="AXA-2W-vB9" id="tsA-MP-B3Y"/>
-                        <segue destination="pfh-dj-v23" kind="showDetail" identifier="SignatureVC" id="Dn8-ty-vIH"/>
+                        <segue destination="pfh-dj-v23" kind="show" identifier="SignatureVC" id="Dn8-ty-vIH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aR5-WQ-4Ia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="582" y="363"/>
+            <point key="canvasLocation" x="1306.0546875" y="362.5"/>
         </scene>
         <!--SignatureVC-->
         <scene sceneID="1wd-Dc-WZJ">
@@ -439,16 +439,16 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Sign Below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEy-WT-3qL">
-                                <rect key="frame" x="333.5" y="60" width="357.5" height="46.5"/>
+                                <rect key="frame" x="333.5" y="110" width="357.5" height="46.5"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                 <color key="textColor" red="0.78536194560000006" green="0.90965777640000001" blue="0.91372877360000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a0G-LD-sU9" userLabel="SignatureBox">
-                                <rect key="frame" x="40" y="136.5" width="944" height="500"/>
+                                <rect key="frame" x="40" y="176.5" width="944" height="450"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="500" id="4mE-wI-7is"/>
+                                    <constraint firstAttribute="height" constant="450" id="4mE-wI-7is"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="H4R-DD-JPZ">
@@ -566,7 +566,7 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="a0G-LD-sU9" firstAttribute="centerX" secondItem="4LS-R2-CZf" secondAttribute="centerX" id="AiA-HZ-P06"/>
-                            <constraint firstItem="a0G-LD-sU9" firstAttribute="top" secondItem="bEy-WT-3qL" secondAttribute="bottom" constant="30" id="Nvp-hD-xML"/>
+                            <constraint firstItem="a0G-LD-sU9" firstAttribute="top" secondItem="bEy-WT-3qL" secondAttribute="bottom" constant="20" id="Nvp-hD-xML"/>
                             <constraint firstItem="96O-kU-40R" firstAttribute="trailing" secondItem="a0G-LD-sU9" secondAttribute="trailing" constant="40" id="P17-RZ-TEn"/>
                             <constraint firstItem="96O-kU-40R" firstAttribute="bottom" secondItem="H4R-DD-JPZ" secondAttribute="bottom" constant="30" id="WNX-l9-49O"/>
                             <constraint firstItem="bEy-WT-3qL" firstAttribute="centerX" secondItem="4LS-R2-CZf" secondAttribute="centerX" id="WOK-F1-q3F"/>
@@ -594,7 +594,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vce-fa-WlD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1479" y="-143"/>
+            <point key="canvasLocation" x="2203.125" y="-143.75"/>
         </scene>
         <!--RegisterVC-->
         <scene sceneID="ccN-kR-haW">
@@ -604,15 +604,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signinBG2" translatesAutoresizingMaskIntoConstraints="NO" id="Cm6-bs-YHQ">
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="Registration" image="signinBG2" translatesAutoresizingMaskIntoConstraints="NO" id="Cm6-bs-YHQ">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Don't have an account?  Register by completing all the fields below and clicking the Register button" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wue-ju-klh">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wue-ju-klh">
                                 <rect key="frame" x="48" y="80" width="929" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="929" id="H7I-kc-fa4"/>
                                 </constraints>
+                                <string key="text">Don't have an account?
+Register by completing all the fields below and clicking the Register button</string>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
                                 <color key="textColor" red="0.92941176470588238" green="0.99607843137254903" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
@@ -620,7 +622,7 @@
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="kpy-t6-3pT" userLabel="Names Stack View">
-                                <rect key="frame" x="177" y="177" width="670" height="80"/>
+                                <rect key="frame" x="177" y="167" width="670" height="80"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvB-0U-lc4">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
@@ -645,8 +647,8 @@
                                     <constraint firstAttribute="height" constant="80" id="Hfx-bC-4f2"/>
                                 </constraints>
                             </stackView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L1c-n4-V10">
-                                <rect key="frame" x="300" y="277" width="424" height="248"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1c-n4-V10">
+                                <rect key="frame" x="300" y="267" width="424" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="319-8L-7EW">
                                         <rect key="frame" x="112" y="5" width="200" height="33"/>
@@ -675,6 +677,7 @@
                                 <constraints>
                                     <constraint firstItem="D90-X3-Iph" firstAttribute="top" secondItem="319-8L-7EW" secondAttribute="bottom" constant="5" id="9aB-kF-q7f"/>
                                     <constraint firstItem="319-8L-7EW" firstAttribute="top" secondItem="L1c-n4-V10" secondAttribute="top" constant="5" id="D4x-XX-eTC"/>
+                                    <constraint firstAttribute="height" constant="260" id="DpA-aQ-bIJ"/>
                                     <constraint firstItem="319-8L-7EW" firstAttribute="centerX" secondItem="L1c-n4-V10" secondAttribute="centerX" id="GxV-Dm-8DW"/>
                                     <constraint firstItem="D90-X3-Iph" firstAttribute="centerX" secondItem="L1c-n4-V10" secondAttribute="centerX" id="g7P-QE-SXo"/>
                                 </constraints>
@@ -685,7 +688,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rjh-hh-xpG" userLabel="Buttons Stack View">
-                                <rect key="frame" x="122" y="562" width="780" height="80"/>
+                                <rect key="frame" x="122" y="587" width="780" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAs-ef-HxW">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
@@ -736,6 +739,9 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="kKt-Ls-VBv"/>
+                                </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="REGISTERING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWl-OS-g5Q">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
@@ -754,15 +760,14 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="wue-ju-klh" firstAttribute="top" secondItem="vFX-M5-FNe" secondAttribute="top" constant="60" id="4Ty-yi-vPx"/>
+                            <constraint firstItem="wue-ju-klh" firstAttribute="top" secondItem="vFX-M5-FNe" secondAttribute="top" constant="20" id="4Ty-yi-vPx"/>
                             <constraint firstItem="wue-ju-klh" firstAttribute="centerX" secondItem="TQ9-Vf-fFR" secondAttribute="centerX" id="Bg6-l8-w1o"/>
-                            <constraint firstItem="L1c-n4-V10" firstAttribute="top" secondItem="kpy-t6-3pT" secondAttribute="bottom" constant="15" id="HGI-7Q-I88"/>
+                            <constraint firstItem="L1c-n4-V10" firstAttribute="top" secondItem="kpy-t6-3pT" secondAttribute="bottom" constant="20" id="HGI-7Q-I88"/>
                             <constraint firstItem="rjh-hh-xpG" firstAttribute="centerX" secondItem="TQ9-Vf-fFR" secondAttribute="centerX" id="NCa-Y7-bgU"/>
                             <constraint firstItem="kpy-t6-3pT" firstAttribute="centerX" secondItem="TQ9-Vf-fFR" secondAttribute="centerX" id="PYu-Qz-K27"/>
                             <constraint firstItem="vFX-M5-FNe" firstAttribute="trailing" secondItem="L1c-n4-V10" secondAttribute="trailing" constant="300" id="RWf-eh-MuA"/>
                             <constraint firstItem="L1c-n4-V10" firstAttribute="leading" secondItem="vFX-M5-FNe" secondAttribute="leading" constant="300" id="XWP-2D-YQG"/>
-                            <constraint firstItem="vFX-M5-FNe" firstAttribute="bottom" secondItem="rjh-hh-xpG" secondAttribute="bottom" constant="126" id="izw-Ua-Qp6"/>
-                            <constraint firstItem="kpy-t6-3pT" firstAttribute="top" secondItem="wue-ju-klh" secondAttribute="bottom" constant="30" id="kd1-91-9zv"/>
+                            <constraint firstItem="kpy-t6-3pT" firstAttribute="top" secondItem="wue-ju-klh" secondAttribute="bottom" constant="10" id="kd1-91-9zv"/>
                             <constraint firstItem="rjh-hh-xpG" firstAttribute="top" secondItem="L1c-n4-V10" secondAttribute="bottom" constant="60" id="oGm-GS-u06"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vFX-M5-FNe"/>
@@ -982,6 +987,24 @@
             </objects>
             <point key="canvasLocation" x="-1013.0859374999999" y="362.5"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gSA-Cv-JFT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vCI-0G-Ues" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6RV-Nz-Q89">
+                        <rect key="frame" x="0.0" y="20" width="1024" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="h4K-k3-ZLg" kind="relationship" relationship="rootViewController" id="kAM-Ec-Old"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AIn-m0-Ytb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-241.40624999999997" y="362.5"/>
+        </scene>
     </scenes>
     <resources>
         <image name="gear" width="612" height="612"/>
@@ -991,6 +1014,6 @@
         <image name="white_left_arrow" width="612" height="612"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dn8-ty-vIH"/>
+        <segue reference="79H-mk-RdJ"/>
     </inferredMetricsTieBreakers>
 </document>

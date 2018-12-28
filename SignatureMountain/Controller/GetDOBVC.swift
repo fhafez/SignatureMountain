@@ -31,13 +31,18 @@ class GetDOBVC: UIViewController {
         dob.layer.cornerRadius = 20
     }
     
+    func prepareHUD(lightness: SVProgressHUDStyle) {
+        SVProgressHUD.setMaximumDismissTimeInterval(4)
+        SVProgressHUD.setMaximumDismissTimeInterval(4)
+        SVProgressHUD.setDefaultStyle(lightness)
+        SVProgressHUD.setShouldTintImages(false)
+        SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
+        SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
+    }
+
     @IBAction func continueBtnPressed(_ sender: Any) {
         
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
-        SVProgressHUD.setMaximumDismissTimeInterval(3)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setShouldTintImages(false)
-        SVProgressHUD.setImageViewSize(CGSize(width: 200, height: 200))
+        prepareHUD(lightness: .dark)
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"

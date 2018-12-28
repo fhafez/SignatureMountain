@@ -130,6 +130,16 @@ class SignatureVC: UIViewController {
         
     }
     
+    func prepareHUD(lightness: SVProgressHUDStyle) {
+        SVProgressHUD.setMaximumDismissTimeInterval(4)
+        SVProgressHUD.setMaximumDismissTimeInterval(4)
+        SVProgressHUD.setDefaultStyle(lightness)
+        SVProgressHUD.setShouldTintImages(false)
+        SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
+        SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
+    }
+
+    
     @IBAction func signinBtnPressed(_ sender: Any) {
         self.sig.append(" '></path></svg>")
         
@@ -138,14 +148,9 @@ class SignatureVC: UIViewController {
         
         largestX += 10
         largestY += 10
-        
-        SVProgressHUD.setMaximumDismissTimeInterval(4)
-        SVProgressHUD.setMaximumDismissTimeInterval(4)
-        SVProgressHUD.setDefaultStyle(.dark)
+
+        prepareHUD(lightness: .light)
         SVProgressHUD.show(withStatus: "Signing in")
-        SVProgressHUD.setShouldTintImages(false)
-        SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
-        SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
 
         let utf8str = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?><!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"><svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" width=\"\(largestX / 3)\" height=\"\(largestY / 3)\">\(self.sig)".data(using: String.Encoding.utf8)
         
@@ -153,25 +158,25 @@ class SignatureVC: UIViewController {
             self.base64EncodedSig = base64Encoded
             commitSignin() {
                 if let successImage = UIImage(named: "successIndicator") {
+                    self.prepareHUD(lightness: .light)
                     SVProgressHUD.show(successImage, status: "Signin Successful.  Please see front desk now.")
+                    
+                    self.navigationController?.popToRootViewController(animated: true)
+                    /*
                     self.delegate?.clearAllFields()
                     self.mainViewController?.dismiss(animated: true, completion: nil)
+                    */
                 }
             }
         } else {
-            let alert: UIAlertController = UIAlertController(title: "Signin Failed", message: "Signin Failed.  Please see front desk.", preferredStyle: .alert)
-            let failedAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
-                if let failImage = UIImage(named: "failedIndicator") {
-                    SVProgressHUD.show(failImage, status: "Signin Failed.  Please see front desk now.")
-                    self.delegate?.clearAllFields()
-                    self.mainViewController?.dismiss(animated: true, completion: nil)
-                }
+            if let failImage = UIImage(named: "failedIndicator") {
+                prepareHUD(lightness: .dark)
+                SVProgressHUD.show(failImage, status: "Signin Failed.  Please see front desk now.")
+                /*
+                self.delegate?.clearAllFields()
+                self.mainViewController?.dismiss(animated: true, completion: nil)
+                */
             }
-            
-            alert.addAction(failedAction)
-            //self.present(alert, animated: true, completion: nil)
-            
-            //SVProgressHUD.showError(withStatus: "Signin Failed")
         }
 
     }
