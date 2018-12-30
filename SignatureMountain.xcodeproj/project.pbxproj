@@ -166,16 +166,6 @@
 		0510FAF0213A0F8B00EC2AEE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				053C8D4421D9505900F93661 /* Roboto Fonts */,
-				053EA43B213B66470067270E /* Constants.swift */,
-				053CA53F21D6AB780097BB7D /* SharedFuncs.swift */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		053C8D4421D9505900F93661 /* Roboto Fonts */ = {
-			isa = PBXGroup;
-			children = (
 				051DBE8A21D9428A00BC3806 /* Roboto-Black.ttf */,
 				051DBE8C21D9428A00BC3806 /* Roboto-BlackItalic.ttf */,
 				051DBE8021D9428900BC3806 /* Roboto-Bold.ttf */,
@@ -194,8 +184,10 @@
 				051DBE8D21D9428A00BC3806 /* RobotoCondensed-Light.ttf */,
 				051DBE8121D9428900BC3806 /* RobotoCondensed-LightItalic.ttf */,
 				051DBE8E21D9428A00BC3806 /* RobotoCondensed-Regular.ttf */,
+				053EA43B213B66470067270E /* Constants.swift */,
+				053CA53F21D6AB780097BB7D /* SharedFuncs.swift */,
 			);
-			path = "Roboto Fonts";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		9C991A93B57F0CE903806A54 /* Pods */ = {
