@@ -1,0 +1,6 @@
+framework module Pods_SignatureMountain {
+  umbrella header "Pods-SignatureMountain-umbrella.h"
+
+  export *
+  module * { export * }
+}

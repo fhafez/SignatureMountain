@@ -24,6 +24,10 @@ class DesignableLabel: UILabel {
 }
 
 @IBDesignable
+class DesignableTextField: UITextField {
+}
+
+@IBDesignable
 class GradientButton: UIButton {
     let gradientLayer = CAGradientLayer()
     
@@ -150,13 +154,12 @@ class SigninVC: UIViewController, canBeRestarted {
     @IBOutlet weak var ClearBtn: UIButton!
     @IBOutlet weak var Firstname: UITextField!
     @IBOutlet weak var Lastname: UITextField!
-    @IBOutlet weak var PageTitle: UILabel!
     
     var delegate : StartVC?
-    var _pageTitle: String?
+    var _pageTitle: String? = ""
     var _direction: String?
 
-    var todaysAppts: JSON = JSON.null
+    //var todaysAppts: JSON = JSON.null
     
     @IBAction func clearBtnPressed(_ sender: Any) {
         Firstname.text = ""
@@ -186,15 +189,7 @@ class SigninVC: UIViewController, canBeRestarted {
         _direction = direction
     }
     
-    func prepareHUD() {
-        SVProgressHUD.setMaximumDismissTimeInterval(4)
-        SVProgressHUD.setMaximumDismissTimeInterval(4)
-        SVProgressHUD.setDefaultStyle(.light)
-        SVProgressHUD.setShouldTintImages(false)
-        SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
-        SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
-    }
-    
+
     func signin() {
         
         if Firstname.text?.count == 0 || Lastname.text?.count == 0 {
@@ -265,13 +260,20 @@ class SigninVC: UIViewController, canBeRestarted {
                     }
                 } else if matchingModels.count() > 1 {
                     print("more than 1 patient found matching those names")
-                    self.performSegue(withIdentifier: "getDOBVC", sender: [matchingModels, "signout"])
+                    SVProgressHUD.dismiss()
+                    self.getTodaysAppointments (){
+                        (appointments:JSON) in
+                        self.performSegue(withIdentifier: "getDOBVC", sender: [matchingModels, "signout", appointments])
+                        debugPrint("done getting today's appointments")
+                    }
                 } else {
                     // found one patient matching first and last name
                     debugPrint(matchingModels)
+                    SVProgressHUD.dismiss()
                     matchingModels.populateFields()
-                    self.getTodaysAppointments {
-                        self.signoutPatient(patientModel: matchingModels)
+                    self.getTodaysAppointments (){
+                        (appointments:JSON) in
+                        self.signoutPatient(patientModel: matchingModels, appointments: appointments)
                         debugPrint("done getting today's appointments")
                     }
                 }
@@ -279,7 +281,7 @@ class SigninVC: UIViewController, canBeRestarted {
         }
     }
     
-    func signoutPatient(patientModel: MatchingModels) {
+    func signoutPatient(patientModel: MatchingModels, appointments: JSON) {
         
         if patientModel.signedIn() == false {
             if let failImage = UIImage(named: "failedIndicator") {
@@ -288,9 +290,9 @@ class SigninVC: UIViewController, canBeRestarted {
         } else {
             
             // filter out the appointments that include the client_id of this patient
-            debugPrint(todaysAppts)
+            debugPrint(appointments)
             
-            let patientAppts = todaysAppts.filter { $0.1["client_id"].intValue == patientModel.asJSON()["client_id"].intValue }
+            let patientAppts = appointments.filter { $0.1["client_id"].intValue == patientModel.asJSON()["client_id"].intValue }
             debugPrint(patientAppts)
             if patientAppts.count == 0 {
                 if let failImage = UIImage(named: "failedIndicator") {
@@ -308,23 +310,24 @@ class SigninVC: UIViewController, canBeRestarted {
             if let date = dateFormatter.date(from: dob) {
 
                 let patient = Patient(firstname: firstname, lastname: lastname, dob: date)
-                debugPrint(todaysAppts)
+                debugPrint(appointments)
                 let lastAppt = patientAppts[patientAppts.count-1].1
                 patient.signout(appointment_id: lastAppt["id"].intValue, completed: {
                     print("done")
                     if let successImage = UIImage(named: "successIndicator") {
                         self.clearAllFields()
                         SVProgressHUD.show(successImage, status: "Signout Successful.  Thank you")
-                        self.delegate?.dismiss(animated: true, completion: nil)
+                        self.navigationController?.popToRootViewController(animated: true)
                     }
                 })
             }
         }
     }
     
-    func getTodaysAppointments(completed: @escaping DetailsRetrieved) {
+    func getTodaysAppointments(completed: @escaping (_ appointments: JSON) -> Void) {
         
         let params: [String: String] = [:]
+        var appointments = JSON.null
         
         // download the matching patient here
         Alamofire.request(settings["todaysAppointmentsURL"]!, method: .get, parameters: params)
@@ -335,14 +338,15 @@ class SigninVC: UIViewController, canBeRestarted {
                     if let returnVal = response.result.value {
                         debugPrint(returnVal)
                         
-                        self.todaysAppts = JSON(returnVal)
-                        debugPrint(self.todaysAppts)
+                        //self.todaysAppts = JSON(returnVal)
+                        appointments = JSON(returnVal)
+                        debugPrint(appointments)
                         
                     }
                 } else {
                     print("error \(String(describing: response.result.error))")
                 }
-                completed()
+                completed(appointments)
         }
         
     }
@@ -360,7 +364,10 @@ class SigninVC: UIViewController, canBeRestarted {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        PageTitle.text = _pageTitle
+        if let pageTitle = _pageTitle {
+            self.title = pageTitle
+        }
+        //PageTitle.text = _pageTitle
     }
     
     override func didReceiveMemoryWarning() {
@@ -383,7 +390,6 @@ class SigninVC: UIViewController, canBeRestarted {
             }
         } else if segue.identifier == "getDOBVC" {
             if let getDOBVC = segue.destination as? GetDOBVC {
-                
                 if let params = sender as? [Any] {
                     if let operation = params[1] as? String {
                         if let matchingModels = params[0] as? MatchingModels {
@@ -391,13 +397,17 @@ class SigninVC: UIViewController, canBeRestarted {
                             getDOBVC.operation = operation
                             getDOBVC.delegate = self
                             getDOBVC.mainViewController = delegate
+                            getDOBVC.setPageTitle(pageTitle: "\(_pageTitle ?? "") - Date of Birth")
+                            if params.count == 3 {
+                                if let appointments = params[2] as? JSON {
+                                    getDOBVC.appointments = appointments
+                                }
+                            }
                         }
                     }
                 }
             }
         }
     }
-
-
 }
 

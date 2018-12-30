@@ -9,6 +9,14 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Roboto-Medium.ttf">
+            <string>Roboto-Medium</string>
+        </array>
+        <array key="Roboto-Regular.ttf">
+            <string>Roboto-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--SigninVC-->
         <scene sceneID="tne-QT-ifu">
@@ -23,14 +31,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.71408420139999995" green="0.049002488740000003" blue="0.2425642449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" insetsLayoutMarginsFromSafeArea="NO" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="de8-3b-Tfu" userLabel="Name Stack">
-                                <rect key="frame" x="152" y="120" width="760" height="100"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="de8-3b-Tfu" userLabel="Name Stack">
+                                <rect key="frame" x="72" y="120" width="880" height="72"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OAs-Xg-rRj" userLabel="FirstnameTextField">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="72"/>
                                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="ztq-vj-zhc"/>
+                                            <constraint firstAttribute="height" constant="72" id="vA7-Pu-ic7" userLabel="height = 90"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="ztq-vj-zhc"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="40"/>
@@ -42,10 +51,11 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cnX-A3-kTu" userLabel="LastnameTextField">
-                                        <rect key="frame" x="330" y="0.0" width="320" height="100"/>
+                                        <rect key="frame" x="330" y="0.0" width="320" height="72"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="9Bp-PU-KGe"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="9Bp-PU-KGe"/>
+                                            <constraint firstAttribute="height" constant="72" id="BFh-dq-L4Y" userLabel="height = 90"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="40"/>
@@ -57,12 +67,23 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7f-MN-fkx" userLabel="SigninBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
-                                        <rect key="frame" x="660" y="0.0" width="100" height="100"/>
+                                        <rect key="frame" x="660" y="0.0" width="220" height="72"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" priority="100" constant="100" id="hMc-k1-oG0"/>
-                                            <constraint firstAttribute="width" constant="100" id="oaY-p1-uAF"/>
+                                            <constraint firstAttribute="height" priority="100" constant="90" id="hMc-k1-oG0"/>
+                                            <constraint firstAttribute="width" constant="220" id="oaY-p1-uAF"/>
                                         </constraints>
-                                        <state key="normal" title="Next" image="lt_blue_arrow"/>
+                                        <state key="normal" image="NextButtonTextOnly"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="38"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="nextBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5Sr-rI-vs0"/>
                                         </connections>
@@ -70,11 +91,10 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="740" id="QOL-Mg-RBF"/>
-                                    <constraint firstAttribute="height" constant="100" id="bzQ-Wp-agf"/>
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="iV8-hc-pPo" userLabel="Buttons Stack">
-                                <rect key="frame" x="387" y="270" width="250" height="80"/>
+                                <rect key="frame" x="387" y="242" width="250" height="0.0"/>
                                 <subviews>
                                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EdS-9j-SBP" userLabel="SignoutBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="200" height="80"/>
@@ -101,8 +121,8 @@
                                             <action selector="CancelBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vju-X3-D9N"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYN-k8-gdk" userLabel="ClearBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="80"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VYN-k8-gdk" userLabel="ClearBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="0.0" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="sPl-Bc-pbU"/>
                                         </constraints>
@@ -130,26 +150,12 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="3Bp-mL-3mc"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  SIGNING IN  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJX-VP-6Tx">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="44"/>
-                                <color key="textColor" red="0.23137254901960785" green="0.2627450980392157" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="de8-3b-Tfu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9PI-DZ-YKf"/>
                             <constraint firstItem="iV8-hc-pPo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a2U-jt-pcv"/>
                             <constraint firstItem="de8-3b-Tfu" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="120" id="aSc-8m-Agq"/>
+                            <constraint firstItem="de8-3b-Tfu" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g1h-BR-RV8"/>
                             <constraint firstItem="iV8-hc-pPo" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kbB-7T-ITy"/>
                             <constraint firstItem="iV8-hc-pPo" firstAttribute="top" secondItem="de8-3b-Tfu" secondAttribute="bottom" constant="50" id="rOF-ww-VkA"/>
                         </constraints>
@@ -161,7 +167,6 @@
                         <outlet property="Firstname" destination="OAs-Xg-rRj" id="YqD-kA-eMj"/>
                         <outlet property="Lastname" destination="cnX-A3-kTu" id="wFT-gc-R41"/>
                         <outlet property="NextBtn" destination="F7f-MN-fkx" id="UL8-41-FH8"/>
-                        <outlet property="PageTitle" destination="ZJX-VP-6Tx" id="C87-PT-AZs"/>
                         <segue destination="pfh-dj-v23" kind="show" identifier="SignatureVC" id="79H-mk-RdJ"/>
                         <segue destination="OEY-J9-Br6" kind="show" identifier="getDOBVC" id="r5b-bM-RnO"/>
                     </connections>
@@ -183,109 +188,140 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.71408420139999995" green="0.049002488740000003" blue="0.2425642449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="De8-c9-2dM" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
-                                <rect key="frame" x="36" y="320" width="300" height="129"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
-                                <state key="normal" title="SIGN IN">
-                                    <color key="titleColor" red="0.71764705880000002" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="gotoSignin:" destination="h4K-k3-ZLg" eventType="touchUpInside" id="vl2-yl-Ona"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6d-Qc-66I" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
-                                <rect key="frame" x="362" y="320" width="300" height="129"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
-                                <state key="normal" title="SIGN OUT">
-                                    <color key="titleColor" red="0.71764705880000002" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="gotoSignout:" destination="h4K-k3-ZLg" eventType="touchUpInside" id="HHd-Py-xON"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xtb-wE-0Py" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
-                                <rect key="frame" x="683" y="320" width="300" height="129"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
-                                <state key="normal" title="REGISTER">
-                                    <color key="titleColor" red="0.71764705880000002" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="60"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="4"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="gotoRegister:" destination="h4K-k3-ZLg" eventType="touchUpInside" id="Kvn-ZN-9gZ"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You have registered before" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrM-Ij-G8w">
-                                <rect key="frame" x="71" y="457" width="230" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New patients only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sJ-KA-cxt">
-                                <rect key="frame" x="761" y="457" width="154" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fu-wi-8B0">
+                            <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K2q-hw-5HS">
+                                <rect key="frame" x="52" y="290.5" width="920" height="187"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LKZ-cO-Jce">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="187"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="De8-c9-2dM" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="7hK-N6-AJk"/>
+                                                    <constraint firstAttribute="height" constant="120" id="a2Q-OK-qlL"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
+                                                <state key="normal" title="SIGN IN">
+                                                    <color key="titleColor" red="0.71764705880000002" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="60"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="gotoSignin:" destination="h4K-k3-ZLg" eventType="touchUpInside" id="vl2-yl-Ona"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have registered before" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xrM-Ij-G8w">
+                                                <rect key="frame" x="35" y="128" width="230" height="59"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="230" id="jso-RS-gQz"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-9V-VSh">
+                                        <rect key="frame" x="310" y="0.0" width="300" height="187"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6d-Qc-66I" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="Z8E-Lb-waf"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="hYj-HQ-7Th"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
+                                                <state key="normal" title="SIGN OUT">
+                                                    <color key="titleColor" red="0.71764705880000002" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="60"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="gotoSignout:" destination="h4K-k3-ZLg" eventType="touchUpInside" id="HHd-Py-xON"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are currently signed in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njC-GY-8cn">
+                                                <rect key="frame" x="38" y="128" width="224.5" height="59"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jAB-TR-O5u">
+                                        <rect key="frame" x="620" y="0.0" width="300" height="187"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xtb-wE-0Py" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="epB-EE-Grb"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="pxF-96-Jnw"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
+                                                <state key="normal" title="REGISTER">
+                                                    <color key="titleColor" red="0.71764705880000002" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="60"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="gotoRegister:" destination="h4K-k3-ZLg" eventType="touchUpInside" id="Kvn-ZN-9gZ"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New patients only" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sJ-KA-cxt">
+                                                <rect key="frame" x="73.5" y="128" width="153.5" height="59"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fu-wi-8B0" userLabel="Gear">
                                 <rect key="frame" x="924" y="668" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="6Wh-Dg-VJI"/>
                                     <constraint firstAttribute="height" constant="50" id="7bt-Hh-aFI"/>
+                                    <constraint firstAttribute="width" constant="50" id="Hku-pX-1dr"/>
                                 </constraints>
-                                <state key="normal" title="Button" image="gear"/>
+                                <state key="normal" image="gear"/>
                                 <connections>
                                     <segue destination="teD-KQ-nCh" kind="presentation" modalTransitionStyle="flipHorizontal" id="ixS-sc-sBP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You are currently signed in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="njC-GY-8cn">
-                                <rect key="frame" x="383" y="457" width="259" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="18"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="WG9-13-zOp" firstAttribute="trailing" secondItem="0Fu-wi-8B0" secondAttribute="trailing" constant="50" id="NxH-eu-uZh"/>
-                            <constraint firstItem="WG9-13-zOp" firstAttribute="bottom" secondItem="0Fu-wi-8B0" secondAttribute="bottom" constant="50" id="Xu1-52-lEF"/>
+                            <constraint firstItem="WG9-13-zOp" firstAttribute="trailing" secondItem="0Fu-wi-8B0" secondAttribute="trailing" constant="50" id="3DG-hl-904"/>
+                            <constraint firstItem="WG9-13-zOp" firstAttribute="bottom" secondItem="0Fu-wi-8B0" secondAttribute="bottom" constant="50" id="BGg-yw-f7R"/>
+                            <constraint firstItem="K2q-hw-5HS" firstAttribute="centerY" secondItem="fKt-0q-Hkf" secondAttribute="centerY" id="GKV-1g-DaL"/>
+                            <constraint firstItem="K2q-hw-5HS" firstAttribute="centerX" secondItem="fKt-0q-Hkf" secondAttribute="centerX" id="GdZ-LG-gVz"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WG9-13-zOp"/>
                     </view>
@@ -320,18 +356,16 @@
                                 </date>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="YNH-iY-bqm">
-                                <rect key="frame" x="262" y="456" width="500" height="80"/>
+                                <rect key="frame" x="402" y="456" width="220" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvG-Wm-PNM" userLabel="SigninBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvG-Wm-PNM" userLabel="SigninBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="220" height="80"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="B08-v5-IfE"/>
+                                            <constraint firstAttribute="width" constant="220" id="B08-v5-IfE"/>
                                             <constraint firstAttribute="height" constant="80" id="hxh-f8-Fyg"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="khh-Kt-H43"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
-                                        <state key="normal" title="Next">
+                                        <state key="normal" image="NextButtonTextOnly" backgroundImage="NextButtonTextOnly">
                                             <color key="titleColor" red="0.71764705882352942" green="0.81176470588235294" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -342,43 +376,16 @@
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="4"/>
+                                                <real key="value" value="3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="continueBtnPressed:" destination="OEY-J9-Br6" eventType="touchUpInside" id="5Kv-89-U2K"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9u2-lp-n68" userLabel="SigninBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
-                                        <rect key="frame" x="260" y="0.0" width="240" height="80"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="0oZ-sn-bvc"/>
-                                            <constraint firstAttribute="height" constant="80" id="MCm-FQ-GsR"/>
-                                            <constraint firstAttribute="width" constant="240" id="cB1-fo-cpX"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
-                                        <state key="normal" title="Back">
-                                            <color key="titleColor" red="0.71764705882352942" green="0.81176470588235294" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="40"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                                <real key="value" value="4"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                        <connections>
-                                            <action selector="backBtnPressed:" destination="OEY-J9-Br6" eventType="touchUpInside" id="v28-OV-vs2"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="500" id="8NH-Lg-MLV"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="8NH-Lg-MLV"/>
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please provide your date of birth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPx-vR-fGI">
@@ -386,20 +393,6 @@
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  SIGNING IN  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mc-PW-b24">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="44"/>
-                                <color key="textColor" red="0.23137254900000001" green="0.26274509800000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -415,7 +408,6 @@
                         <viewLayoutGuide key="safeArea" id="NZy-eT-qzg"/>
                     </view>
                     <connections>
-                        <outlet property="backBtn" destination="9u2-lp-n68" id="isp-Ib-EqP"/>
                         <outlet property="continueBtn" destination="uvG-Wm-PNM" id="QCo-Yr-WeW"/>
                         <outlet property="dob" destination="AXA-2W-vB9" id="tsA-MP-B3Y"/>
                         <segue destination="pfh-dj-v23" kind="show" identifier="SignatureVC" id="Dn8-ty-vIH"/>
@@ -459,7 +451,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="80" id="dgm-wi-4PB"/>
-                                            <constraint firstAttribute="width" constant="240" id="iYF-HG-Gp7"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="iYF-HG-Gp7"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="qG2-ao-K2r"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
@@ -498,7 +490,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="OS3-rI-qzP"/>
-                                            <constraint firstAttribute="width" constant="240" id="VMP-gX-ryf"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="VMP-gX-ryf"/>
                                             <constraint firstAttribute="height" constant="80" id="pad-Um-GM3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
@@ -525,7 +517,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="G7Z-E4-nKD"/>
-                                            <constraint firstAttribute="width" constant="240" id="YVw-It-dhI"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="YVw-It-dhI"/>
                                             <constraint firstAttribute="height" constant="80" id="tZ9-I2-Ntb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
@@ -549,20 +541,6 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="  SIGNING IN  " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HQ9-hS-kfT">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="44"/>
-                                <color key="textColor" red="0.23137254900000001" green="0.26274509800000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                         </subviews>
                         <constraints>
                             <constraint firstItem="a0G-LD-sU9" firstAttribute="centerX" secondItem="4LS-R2-CZf" secondAttribute="centerX" id="AiA-HZ-P06"/>
@@ -608,39 +586,49 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wue-ju-klh">
-                                <rect key="frame" x="48" y="80" width="929" height="72"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wue-ju-klh">
+                                <rect key="frame" x="47.5" y="90" width="929" height="64.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="929" id="H7I-kc-fa4"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="929" id="H7I-kc-fa4"/>
                                 </constraints>
                                 <string key="text">Don't have an account?
 Register by completing all the fields below and clicking the Register button</string>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="24"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
                                 <color key="textColor" red="0.92941176470588238" green="0.99607843137254903" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <size key="shadowOffset" width="0.0" height="1"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="kpy-t6-3pT" userLabel="Names Stack View">
-                                <rect key="frame" x="177" y="167" width="670" height="80"/>
+                                <rect key="frame" x="177" y="164.5" width="670" height="80"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvB-0U-lc4">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvB-0U-lc4" customClass="DesignableTextField" customModule="SignatureMountain" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="2eP-cb-Ezm"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="2eP-cb-Ezm"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="40"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="40"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdm-0t-uDi">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Lastname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bdm-0t-uDi" customClass="DesignableTextField" customModule="SignatureMountain" customModuleProvider="target">
                                         <rect key="frame" x="350" y="0.0" width="320" height="80"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="320" id="HMu-md-TX3"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="HMu-md-TX3"/>
                                         </constraints>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="40"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="40"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -648,20 +636,20 @@ Register by completing all the fields below and clicking the Register button</st
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L1c-n4-V10">
-                                <rect key="frame" x="300" y="267" width="424" height="260"/>
+                                <rect key="frame" x="300" y="264.5" width="424" height="260"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of Birth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="319-8L-7EW">
-                                        <rect key="frame" x="112" y="5" width="200" height="33"/>
+                                        <rect key="frame" x="112" y="5" width="200" height="32"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="1Ga-J5-Zqf"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="1Ga-J5-Zqf"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="24"/>
+                                        <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="24"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D90-X3-Iph">
-                                        <rect key="frame" x="52" y="43" width="320" height="187"/>
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D90-X3-Iph">
+                                        <rect key="frame" x="52" y="43" width="320" height="216"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <date key="date" timeIntervalSinceReferenceDate="-640304860.72842407">
                                             <!--1980-09-17 01:32:19 +0000-->
@@ -675,7 +663,7 @@ Register by completing all the fields below and clicking the Register button</st
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="D90-X3-Iph" firstAttribute="top" secondItem="319-8L-7EW" secondAttribute="bottom" constant="5" id="9aB-kF-q7f"/>
+                                    <constraint firstItem="D90-X3-Iph" firstAttribute="top" secondItem="319-8L-7EW" secondAttribute="bottom" constant="6" id="9aB-kF-q7f"/>
                                     <constraint firstItem="319-8L-7EW" firstAttribute="top" secondItem="L1c-n4-V10" secondAttribute="top" constant="5" id="D4x-XX-eTC"/>
                                     <constraint firstAttribute="height" constant="260" id="DpA-aQ-bIJ"/>
                                     <constraint firstItem="319-8L-7EW" firstAttribute="centerX" secondItem="L1c-n4-V10" secondAttribute="centerX" id="GxV-Dm-8DW"/>
@@ -688,13 +676,13 @@ Register by completing all the fields below and clicking the Register button</st
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rjh-hh-xpG" userLabel="Buttons Stack View">
-                                <rect key="frame" x="122" y="587" width="780" height="80"/>
+                                <rect key="frame" x="257" y="584.5" width="510" height="80"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAs-ef-HxW">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAs-ef-HxW" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="a4X-3u-tAJ"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="a4X-3u-tAJ"/>
                                             <constraint firstAttribute="height" constant="80" id="fzm-kK-YBI"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
@@ -702,15 +690,26 @@ Register by completing all the fields below and clicking the Register button</st
                                         <state key="normal" title="Register">
                                             <color key="titleColor" red="0.92941176470588238" green="0.99607843137254903" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="registerBtnPressed:" destination="o9W-kC-Gnn" eventType="touchUpInside" id="B8e-ic-1ex"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIi-TI-fds">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZIi-TI-fds" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
                                         <rect key="frame" x="270" y="0.0" width="240" height="80"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="hlr-57-pdb"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="hlr-57-pdb"/>
                                             <constraint firstAttribute="height" constant="80" id="z8w-cr-UQV"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
@@ -718,15 +717,26 @@ Register by completing all the fields below and clicking the Register button</st
                                         <state key="normal" title="Clear">
                                             <color key="titleColor" red="0.92941176470588238" green="0.99607843137254903" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <integer key="value" value="40"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="clearBtnPressed:" destination="o9W-kC-Gnn" eventType="touchUpInside" id="iwi-Ah-r5t"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqV-ZC-Lsq">
-                                        <rect key="frame" x="540" y="0.0" width="240" height="80"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqV-ZC-Lsq">
+                                        <rect key="frame" x="510" y="0.0" width="240" height="80"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="240" id="hw6-Nn-JIg"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="240" id="hw6-Nn-JIg"/>
                                             <constraint firstAttribute="height" constant="80" id="wQi-LC-Z3b"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
@@ -743,20 +753,6 @@ Register by completing all the fields below and clicking the Register button</st
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="kKt-Ls-VBv"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="REGISTERING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWl-OS-g5Q">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="44"/>
-                                <color key="textColor" red="0.23137254900000001" green="0.26274509800000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="5"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -909,7 +905,7 @@ Register by completing all the fields below and clicking the Register button</st
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Zyi-TO-Dvl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="44"/>
+                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="36"/>
                                 <color key="textColor" red="0.23137254900000001" green="0.26274509800000001" blue="0.32549019610000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
@@ -992,9 +988,12 @@ Register by completing all the fields below and clicking the Register button</st
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vCI-0G-Ues" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="6RV-Nz-Q89">
+                    <navigationBar key="navigationBar" alpha="0.5" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" id="6RV-Nz-Q89">
                         <rect key="frame" x="0.0" y="20" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="36"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1007,13 +1006,13 @@ Register by completing all the fields below and clicking the Register button</st
         </scene>
     </scenes>
     <resources>
+        <image name="NextButtonTextOnly" width="440" height="180"/>
         <image name="gear" width="612" height="612"/>
-        <image name="lt_blue_arrow" width="612" height="612"/>
         <image name="signinBG" width="2048" height="1536"/>
         <image name="signinBG2" width="2048" height="1536"/>
         <image name="white_left_arrow" width="612" height="612"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="79H-mk-RdJ"/>
+        <segue reference="Dn8-ty-vIH"/>
     </inferredMetricsTieBreakers>
 </document>

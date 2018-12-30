@@ -46,22 +46,8 @@ class RegisterVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FirstName.layer.cornerRadius = 10.0
-        LastName.layer.cornerRadius = 10.0
-
-        RegisterBtn.layer.cornerRadius = buttonCornerRadius
-        ClearBtn.layer.cornerRadius = buttonCornerRadius
-        CancelBtn.layer.cornerRadius = buttonCornerRadius
-        
-        RegisterBtn.layer.borderWidth = buttonBorderWidth
-        RegisterBtn.layer.borderColor = buttonBorderColor
-        ClearBtn.layer.borderWidth = buttonBorderWidth
-        ClearBtn.layer.borderColor = buttonBorderColor
-        CancelBtn.layer.borderWidth = buttonBorderWidth
-        CancelBtn.layer.borderColor = buttonBorderColor
-
-        DOBView.layer.cornerRadius = 10.0
-        
+        self.title = "REGISTERING"
+                
         let Tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
         let DOBTap:UITapGestureRecognizer = UITapGestureRecognizer(target: DOB, action: #selector(DismissKeyboard))
         
@@ -84,6 +70,7 @@ class RegisterVC: UIViewController {
 
         SVProgressHUD.setDefaultStyle(.dark)
         SVProgressHUD.show(withStatus: "Registering")
+        UIApplication.shared.beginIgnoringInteractionEvents()
 
         if let firstname = FirstName.text {
             if let lastname = LastName.text {
@@ -95,6 +82,7 @@ class RegisterVC: UIViewController {
                         if patient.getId() > 0 {
                             if let successImage = UIImage(named: "successIndicator") {
                                 SVProgressHUD.show(successImage, status: "Registration Successful.  Please sign in now")
+                                UIApplication.shared.endIgnoringInteractionEvents()
                                 //self.delegate?.clearAllFields()
                                 //self.delegate?.dismiss(animated: true, completion: nil)
                                 self.navigationController?.popToRootViewController(animated: true)
@@ -102,6 +90,7 @@ class RegisterVC: UIViewController {
                         } else {
                             if let failImage = UIImage(named: "failedIndicator") {
                                 SVProgressHUD.show(failImage, status: "Registration Failed.  Perhaps you have registered before?")
+                                UIApplication.shared.endIgnoringInteractionEvents()
                             }
                         }
                     }
@@ -109,6 +98,7 @@ class RegisterVC: UIViewController {
                     print("Mandatory Fields Not Provided")
                     if let failImage = UIImage(named: "failedIndicator") {
                         SVProgressHUD.show(failImage, status: "You must provide a Firstname, Lastname and Date of Birth")
+                        //UIApplication.shared.endIgnoringInteractionEvents()
                     }
                 } catch {
                     print(error)
@@ -124,7 +114,10 @@ class RegisterVC: UIViewController {
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
         //delegate?.dismiss(animated: true, completion: nil)
-        navigationController?.popToRootViewController(animated: true)
+        guard (navigationController?.popToRootViewController(animated: true)) != nil else {
+            print("could not pop to root view controller")
+            return
+        }
     }
     
 }

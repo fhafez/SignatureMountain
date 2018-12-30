@@ -62,5 +62,45 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string></string>
+	</array>
+	<key>Item0</key>
+	<string>Roboto-Black.ttf</string>
+	<key>Item1</key>
+	<string>Roboto-BlackItalic.ttf</string>
+	<key>Item2</key>
+	<string>Roboto-Bold.ttf</string>
+	<key>Item3</key>
+	<string>Roboto-Light.ttf</string>
+	<key>Item4</key>
+	<string>Roboto-LightItalic.ttf</string>
+	<key>Item5</key>
+	<string>Roboto-Medium.ttf</string>
+	<key>Item6</key>
+	<string>Roboto-MediumItalic.ttf</string>
+	<key>Item7</key>
+	<string>Roboto-Regular.ttf</string>
+	<key>Item8</key>
+	<string>Roboto-Thin.ttf</string>
+	<key>Item9</key>
+	<string>Roboto-ThinItalic.ttf</string>
+	<key>Item10</key>
+	<string>Roboto-Condensed-Bold.ttf</string>
+	<key>Item11</key>
+	<string>RobotoCondensed-BoldItalic.ttf</string>
+	<key>Item12</key>
+	<string>RobotoCondensed-Italic.ttf</string>
+	<key>Item13</key>
+	<string>RobotoCondensed-Light.ttf</string>
+	<key>Item14</key>
+	<string>RobotoCondensed-LightItalic.ttf</string>
+	<key>Item15</key>
+	<string>RobotoCondensed-Regular.ttf</string>
+	<key>Item16</key>
+	<string>Roboto-BoldItalic.ttf</string>
+	<key>Item17</key>
+	<string>Roboto-Italic.ttf</string>
 </dict>
 </plist>

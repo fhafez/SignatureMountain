@@ -18,6 +18,9 @@ class GetDOBVC: UIViewController {
     var mainViewController: StartVC!
     var delegate: SigninVC!
     var operation: String = ""
+    var appointments: JSON = JSON.null
+    var _pageTitle: String?
+
     
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var dob: UIDatePicker!
@@ -26,23 +29,18 @@ class GetDOBVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let pageTitle = _pageTitle {
+            self.title = pageTitle
+        }
+        
         dob.backgroundColor = UIColor.white
         dob.setValue(0.9, forKeyPath: "alpha")
         dob.layer.cornerRadius = 20
     }
     
-    func prepareHUD(lightness: SVProgressHUDStyle) {
-        SVProgressHUD.setMaximumDismissTimeInterval(4)
-        SVProgressHUD.setMaximumDismissTimeInterval(4)
-        SVProgressHUD.setDefaultStyle(lightness)
-        SVProgressHUD.setShouldTintImages(false)
-        SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
-        SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
-    }
-
     @IBAction func continueBtnPressed(_ sender: Any) {
         
-        prepareHUD(lightness: .dark)
+        prepareHUD(lightness: .light)
 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
@@ -56,10 +54,10 @@ class GetDOBVC: UIViewController {
             if operation == "signin" {
                 SVProgressHUD.show(withStatus: "Signing in")
                 self.performSegue(withIdentifier: "SignatureVC", sender: matchingPatients)
+                SVProgressHUD.dismiss()
             } else if operation == "signout" {
                 SVProgressHUD.show(withStatus: "Signing out")
-                
-                commitSignout()
+                commitSignout(matchingPatients)
                 // MARK - do the signout here
             }
         } else {
@@ -81,6 +79,10 @@ class GetDOBVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
 
+    func setPageTitle(pageTitle: String?) {
+        _pageTitle = pageTitle
+    }
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SignatureVC" {
             if let getSignatureVC = segue.destination as? SignatureVC {
@@ -93,11 +95,41 @@ class GetDOBVC: UIViewController {
         }
     }
 
-    func commitSignout() {
+    func commitSignout(_ patientModel: JSON) {
         
         let todaysAppointments = MatchingAppointments()
         todaysAppointments.getTodaysAppointments {
             todaysAppointments.matchingAppointments(client_id: 1)
+        }
+        
+        debugPrint(appointments)
+        let patientAppts = appointments.filter { $0.1["client_id"].intValue == patientModel["id"].intValue }
+        debugPrint(patientAppts)
+        if patientAppts.count == 0 {
+            if let failImage = UIImage(named: "failedIndicator") {
+                SVProgressHUD.show(failImage, status: "You are not signed in at the moment")
+            }
+            return
+        }
+        
+        let firstname = patientModel["firstname"].stringValue
+        let lastname = patientModel["lastname"].stringValue
+        let dob = patientModel["dob"].stringValue
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let date = dateFormatter.date(from: dob) {
+            
+            let patient = Patient(firstname: firstname, lastname: lastname, dob: date)
+            debugPrint(appointments)
+            let lastAppt = patientAppts[patientAppts.count-1].1
+            patient.signout(appointment_id: lastAppt["id"].intValue, completed: {
+                print("done")
+                if let successImage = UIImage(named: "successIndicator") {
+                    SVProgressHUD.show(successImage, status: "Signout Successful.  Thank you")
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            })
         }
 
     }
