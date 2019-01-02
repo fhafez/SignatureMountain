@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1000"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7FA64FBE0BFFB049756E3E5396EFE2B2"
+               BlueprintIdentifier = "815974F2577FE133D9F18EE84869C7B1"
                BuildableName = "Pods_SignatureMountain.framework"
                BlueprintName = "Pods-SignatureMountain"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7FA64FBE0BFFB049756E3E5396EFE2B2"
+            BlueprintIdentifier = "815974F2577FE133D9F18EE84869C7B1"
             BuildableName = "Pods_SignatureMountain.framework"
             BlueprintName = "Pods-SignatureMountain"
             ReferencedContainer = "container:Pods.xcodeproj">

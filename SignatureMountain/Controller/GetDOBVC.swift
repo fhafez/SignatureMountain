@@ -58,17 +58,10 @@ class GetDOBVC: UIViewController {
             } else if operation == "signout" {
                 SVProgressHUD.show(withStatus: "Signing out")
                 commitSignout(matchingPatients)
-                // MARK - do the signout here
             }
         } else {
-            /*
-            let alert: UIAlertController = UIAlertController(title: "Patient not found", message: "Patient with that name and date of birth not found.  Perhaps you need to register first.", preferredStyle: .alert)
-            let restartAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { (UIAlertAction) in
-            }
-            alert.addAction(restartAction)
-            present(alert, animated: true, completion: nil)
-            */
-            if let failImage = UIImage(named: "failedIndicator") {
+
+            if let failImage = UIImage(named: "failed") {
                 SVProgressHUD.show(failImage, status: "Patient with that name and date of birth not found.  Perhaps you need to register first.")
             }
         }
@@ -85,28 +78,24 @@ class GetDOBVC: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SignatureVC" {
-            if let getSignatureVC = segue.destination as? SignatureVC {
-                if let signinModel = sender as? JSON {
-                    getSignatureVC.signinModel = signinModel
-                    getSignatureVC.mainViewController = self.mainViewController
-                    getSignatureVC.delegate = delegate
-                }
+            if let getSignatureVC = segue.destination as? SignatureVC, let signinModel = sender as? JSON {
+                getSignatureVC.signinModel = signinModel
+                getSignatureVC.mainViewController = self.mainViewController
+                getSignatureVC.delegate = delegate
             }
         }
     }
 
     func commitSignout(_ patientModel: JSON) {
         
-        let todaysAppointments = MatchingAppointments()
-        todaysAppointments.getTodaysAppointments {
-            todaysAppointments.matchingAppointments(client_id: 1)
-        }
-        
         debugPrint(appointments)
+        
+        // filter all of today's appointments for the client attempting to sign in
         let patientAppts = appointments.filter { $0.1["client_id"].intValue == patientModel["id"].intValue }
-        debugPrint(patientAppts)
+        debugPrint("patientAppts \(patientAppts)")
         if patientAppts.count == 0 {
-            if let failImage = UIImage(named: "failedIndicator") {
+            // no appointments found for this patient for today
+            if let failImage = UIImage(named: "failed") {
                 SVProgressHUD.show(failImage, status: "You are not signed in at the moment")
             }
             return

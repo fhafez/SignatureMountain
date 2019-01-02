@@ -18,7 +18,7 @@ import UIKit
     
     override func drawText(in rect: CGRect) {
         let insets = UIEdgeInsets.init(top: topInset, left: leftInset, bottom: bottomInset, right: rightInset)
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
+        super.drawText(in: rect.inset(by: insets))
     }
     
     override var intrinsicContentSize: CGSize {
@@ -49,7 +49,7 @@ class SettingsVC: UIViewController {
             settings["matchPatientsURL"] = "\(baseURLValue)php/matchPatients.php/"
             settings["registerPatientURL"] = "\(baseURLValue)php/registerJS.php/"
             settings["todaysAppointmentsURL"] = "\(baseURLValue)php/signinJS.php/appointments/"
-            settings["signoutAppointmentURL"] = "\(baseURLValue)php/signinJS.php/"
+            settings["signoutAppointmentURL"] = "\(baseURLValue)php/signinJS.php/aaa"
             
             defaults.set(settings, forKey: "settings")
         }

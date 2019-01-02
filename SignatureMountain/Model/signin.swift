@@ -137,7 +137,8 @@ class Signin {
         return appointmentData
     }
     
-    func getDetails(completed: @escaping DetailsRetrieved) {
+    
+    func getDetails(completed: @escaping (DetailsRetrieved?, Error?) -> ()){
 
         let params: [String: String] = ["firstname": _firstname, "lastname": _lastname]
         
@@ -166,9 +167,9 @@ class Signin {
 //                    self.present(connectionAlert, animated: true, completion: nil)
                 }
                 
-                completed()
+                completed(nil, nil)
         }
 
     }
-    
+   
 }

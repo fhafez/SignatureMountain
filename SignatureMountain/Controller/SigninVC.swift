@@ -9,7 +9,6 @@
 import UIKit
 import SwiftyJSON
 import SVProgressHUD
-import Alamofire
 
 @IBDesignable
 class DesignableView: UIView {
@@ -158,6 +157,9 @@ class SigninVC: UIViewController, canBeRestarted {
     var delegate : StartVC?
     var _pageTitle: String? = ""
     var _direction: String?
+    
+    var appointments: Appointments = Appointments()
+    let ifMessages = InterfaceMessages()
 
     //var todaysAppts: JSON = JSON.null
     
@@ -214,7 +216,7 @@ class SigninVC: UIViewController, canBeRestarted {
                 
                 if matchingModels.count() == 0 {
                     print("no patients found with those names")
-                    if let failImage = UIImage(named: "failedIndicator") {
+                    if let failImage = UIImage(named: "failed") {
                         SVProgressHUD.show(failImage, status: "No patient with that name found")
                     }
                 } else if matchingModels.count() > 1 {
@@ -255,26 +257,36 @@ class SigninVC: UIViewController, canBeRestarted {
                 
                 if matchingModels.count() == 0 {
                     print("no patients found with those names")
-                    if let failImage = UIImage(named: "failedIndicator") {
+                    if let failImage = UIImage(named: "failed") {
                         SVProgressHUD.show(failImage, status: "No patient with that name found")
                     }
                 } else if matchingModels.count() > 1 {
                     print("more than 1 patient found matching those names")
                     SVProgressHUD.dismiss()
-                    self.getTodaysAppointments (){
-                        (appointments:JSON) in
-                        self.performSegue(withIdentifier: "getDOBVC", sender: [matchingModels, "signout", appointments])
-                        debugPrint("done getting today's appointments")
+                    self.appointments.getTodaysAppointments (){
+                        (appointments:JSON?, error:Error?) in
+                        if error == nil, let appts = appointments {
+                            self.performSegue(withIdentifier: "getDOBVC", sender: [matchingModels, "signout", appts])
+                            debugPrint("done getting today's appointments")
+                        } else {
+                            debugPrint("an error occurred: \(error!)")
+                            self.ifMessages.displayErrorMessageDialog(current: self, title: "Signout Failed", msg: "An error occured.  See Reception")
+                        }
                     }
                 } else {
                     // found one patient matching first and last name
                     debugPrint(matchingModels)
                     SVProgressHUD.dismiss()
                     matchingModels.populateFields()
-                    self.getTodaysAppointments (){
-                        (appointments:JSON) in
-                        self.signoutPatient(patientModel: matchingModels, appointments: appointments)
-                        debugPrint("done getting today's appointments")
+                    self.appointments.getTodaysAppointments (){
+                        (appointments:JSON?, error:Error?) in
+                        if error == nil, let appts = appointments {
+                            self.signoutPatient(patientModel: matchingModels, appointments: appts)
+                            debugPrint("done getting today's appointments")
+                        } else {
+                            debugPrint("an error occurred: \(error!)")
+                            self.ifMessages.displayErrorMessageDialog(current: self, title: "Signout Failed", msg: "An error occured.  See Reception")
+                        }
                     }
                 }
             }
@@ -284,7 +296,7 @@ class SigninVC: UIViewController, canBeRestarted {
     func signoutPatient(patientModel: MatchingModels, appointments: JSON) {
         
         if patientModel.signedIn() == false {
-            if let failImage = UIImage(named: "failedIndicator") {
+            if let failImage = UIImage(named: "failed") {
                 SVProgressHUD.show(failImage, status: "You are not signed in at the moment")
             }
         } else {
@@ -295,7 +307,7 @@ class SigninVC: UIViewController, canBeRestarted {
             let patientAppts = appointments.filter { $0.1["client_id"].intValue == patientModel.asJSON()["client_id"].intValue }
             debugPrint(patientAppts)
             if patientAppts.count == 0 {
-                if let failImage = UIImage(named: "failedIndicator") {
+                if let failImage = UIImage(named: "failed") {
                     SVProgressHUD.show(failImage, status: "You are not signed in at the moment")
                 }
                 return
@@ -324,43 +336,16 @@ class SigninVC: UIViewController, canBeRestarted {
         }
     }
     
-    func getTodaysAppointments(completed: @escaping (_ appointments: JSON) -> Void) {
-        
-        let params: [String: String] = [:]
-        var appointments = JSON.null
-        
-        // download the matching patient here
-        Alamofire.request(settings["todaysAppointmentsURL"]!, method: .get, parameters: params)
-            .authenticate(user: settings["user"]!, password: settings["password"]!)
-            .responseJSON {
-                response in
-                if response.result.isSuccess {
-                    if let returnVal = response.result.value {
-                        debugPrint(returnVal)
-                        
-                        //self.todaysAppts = JSON(returnVal)
-                        appointments = JSON(returnVal)
-                        debugPrint(appointments)
-                        
-                    }
-                } else {
-                    print("error \(String(describing: response.result.error))")
-                }
-                completed(appointments)
-        }
-        
-    }
+
     
     override func viewDidAppear(_ animated: Bool) {
         if !Connectivity.isConnectedToInternet {
             print("not connected to the internet")
-            let alert: UIAlertController = UIAlertController(title: "Connection Failed", message: "No Connection to the Internet", preferredStyle: .alert)
-            let retryAction: UIAlertAction = UIAlertAction(title: "OK", style: .default)
-            alert.addAction(retryAction)
-            present(alert, animated: true, completion: nil)
+            ifMessages.displayErrorMessageDialog(current: self, title: "Connection Failed", msg: "not connected to the internet")
         }
     }
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -381,31 +366,26 @@ class SigninVC: UIViewController, canBeRestarted {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SignatureVC" {
-            if let getSignatureVC = segue.destination as? SignatureVC {
-                if let signinModel = sender as? JSON {
-                    getSignatureVC.signinModel = signinModel
-                    getSignatureVC.delegate = self
-                    getSignatureVC.mainViewController = delegate
-                }
+            if let getSignatureVC = segue.destination as? SignatureVC, let signinModel = sender as? JSON {
+                getSignatureVC.signinModel = signinModel
+                getSignatureVC.delegate = self
+                getSignatureVC.mainViewController = delegate
             }
         } else if segue.identifier == "getDOBVC" {
-            if let getDOBVC = segue.destination as? GetDOBVC {
-                if let params = sender as? [Any] {
-                    if let operation = params[1] as? String {
-                        if let matchingModels = params[0] as? MatchingModels {
-                            getDOBVC.matchingModels = matchingModels
-                            getDOBVC.operation = operation
-                            getDOBVC.delegate = self
-                            getDOBVC.mainViewController = delegate
-                            getDOBVC.setPageTitle(pageTitle: "\(_pageTitle ?? "") - Date of Birth")
-                            if params.count == 3 {
-                                if let appointments = params[2] as? JSON {
-                                    getDOBVC.appointments = appointments
-                                }
-                            }
+            if let getDOBVC = segue.destination as? GetDOBVC,
+                let params = sender as? [Any],
+                let operation = params[1] as? String,
+                let matchingModels = params[0] as? MatchingModels  {
+                    getDOBVC.matchingModels = matchingModels
+                    getDOBVC.operation = operation
+                    getDOBVC.delegate = self
+                    getDOBVC.mainViewController = delegate
+                    getDOBVC.setPageTitle(pageTitle: "\(_pageTitle ?? "") - Date of Birth")
+                    if params.count == 3 {
+                        if let appointments = params[2] as? JSON {
+                            getDOBVC.appointments = appointments
                         }
                     }
-                }
             }
         }
     }

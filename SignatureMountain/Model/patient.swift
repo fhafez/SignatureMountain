@@ -24,7 +24,22 @@ class Patient {
         self._dob = dob
         self._id = 0
     }
-    
+
+    init(firstname: String, lastname: String, dob: String) {
+        
+        self._fisrtname = firstname
+        self._lastname = lastname
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        if let date = dateFormatter.date(from: dob) {
+            self._dob = date
+        } else {
+            self._dob = dateFormatter.date(from: "01/01/1970")!
+        }
+        self._id = 0
+    }
+
     func getId() -> Int {
         return _id
     }

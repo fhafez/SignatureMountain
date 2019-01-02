@@ -10,4 +10,5 @@ target 'SignatureMountain' do
   pod 'SwiftLint', '~> 0.27'
   pod 'SwiftyJSON'
   pod 'SVProgressHUD'
+  pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
 end

@@ -62,25 +62,4 @@ class MatchingAppointments {
 
     }
     
-    func getTodaysAppointments(completed: @escaping DetailsRetrieved) {
-        
-        // download the matching patient here
-        Alamofire.request(settings["todaysAppointmentsURL"]!, method: .get)
-            .authenticate(user: settings["user"]!, password: settings["password"]!)
-            .responseJSON {
-                response in
-                if response.result.isSuccess {
-                    if let returnVal = response.result.value {
-                        self._jsonTodaysAppointments = JSON(returnVal)
-                    }
-                } else {
-                    print("error \(String(describing: response.result.error))")
-                    //                    self.present(connectionAlert, animated: true, completion: nil)
-                }
-                completed()
-        }
-        
-    }
-    
-    
 }

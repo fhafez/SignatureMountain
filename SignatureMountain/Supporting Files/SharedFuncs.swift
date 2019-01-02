@@ -15,7 +15,8 @@ func prepareHUD() {
     SVProgressHUD.setMaximumDismissTimeInterval(4)
     SVProgressHUD.setDefaultStyle(.light)
     SVProgressHUD.setShouldTintImages(false)
-    SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
+//    SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
+    SVProgressHUD.setFont(UIFont(name: "Roboto", size: 24.0)!)
     SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
 }
 
@@ -24,6 +25,7 @@ func prepareHUD(lightness: SVProgressHUDStyle) {
     SVProgressHUD.setMaximumDismissTimeInterval(4)
     SVProgressHUD.setDefaultStyle(lightness)
     SVProgressHUD.setShouldTintImages(false)
-    SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
+//    SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
+    SVProgressHUD.setFont(UIFont(name: "Roboto", size: 24.0)!)
     SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
 }

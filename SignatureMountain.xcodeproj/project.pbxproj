@@ -37,6 +37,8 @@
 		053CA54021D6AB780097BB7D /* SharedFuncs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053CA53F21D6AB780097BB7D /* SharedFuncs.swift */; };
 		053EA43C213B66470067270E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EA43B213B66470067270E /* Constants.swift */; };
 		053EA43E213B79000067270E /* SignatureVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053EA43D213B78FF0067270E /* SignatureVC.swift */; };
+		0561185621DC49C500D11D70 /* Appointments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0561185521DC49C500D11D70 /* Appointments.swift */; };
+		0561185821DC6B8600D11D70 /* InterfaceMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0561185721DC6B8600D11D70 /* InterfaceMessages.swift */; };
 		059E9E752143580100AE8D13 /* GetDOBVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E9E742143580000AE8D13 /* GetDOBVC.swift */; };
 		059E9E77214477CA00AE8D13 /* matchingModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E9E76214477CA00AE8D13 /* matchingModels.swift */; };
 		059E9E79214F353900AE8D13 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 059E9E78214F353800AE8D13 /* RegisterVC.swift */; };
@@ -76,6 +78,8 @@
 		053CA53F21D6AB780097BB7D /* SharedFuncs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFuncs.swift; sourceTree = "<group>"; };
 		053EA43B213B66470067270E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		053EA43D213B78FF0067270E /* SignatureVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignatureVC.swift; sourceTree = "<group>"; };
+		0561185521DC49C500D11D70 /* Appointments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointments.swift; sourceTree = "<group>"; };
+		0561185721DC6B8600D11D70 /* InterfaceMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceMessages.swift; sourceTree = "<group>"; };
 		059E9E742143580000AE8D13 /* GetDOBVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDOBVC.swift; sourceTree = "<group>"; };
 		059E9E76214477CA00AE8D13 /* matchingModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = matchingModels.swift; sourceTree = "<group>"; };
 		059E9E78214F353800AE8D13 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -136,6 +140,8 @@
 				0515723E215327FA00D06DEE /* patient.swift */,
 				059E9E76214477CA00AE8D13 /* matchingModels.swift */,
 				051572402158809400D06DEE /* matchingAppointments.swift */,
+				0561185521DC49C500D11D70 /* Appointments.swift */,
+				0561185721DC6B8600D11D70 /* InterfaceMessages.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -241,6 +247,7 @@
 				TargetAttributes = {
 					0510FAD7213A0D5600EC2AEE = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -301,12 +308,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SignatureMountain/Pods-SignatureMountain-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -342,6 +351,7 @@
 			files = (
 				053CA54021D6AB780097BB7D /* SharedFuncs.swift in Sources */,
 				0510FAF2213A108600EC2AEE /* signin.swift in Sources */,
+				0561185621DC49C500D11D70 /* Appointments.swift in Sources */,
 				059E9E79214F353900AE8D13 /* RegisterVC.swift in Sources */,
 				05FA91F521D53DE20061616D /* SettingsVC.swift in Sources */,
 				0510FADE213A0D5600EC2AEE /* SigninVC.swift in Sources */,
@@ -350,6 +360,7 @@
 				0510FADC213A0D5600EC2AEE /* AppDelegate.swift in Sources */,
 				059E9E752143580100AE8D13 /* GetDOBVC.swift in Sources */,
 				051572412158809400D06DEE /* matchingAppointments.swift in Sources */,
+				0561185821DC6B8600D11D70 /* InterfaceMessages.swift in Sources */,
 				05271DF021D2EDD900AFF78C /* Connectivity.swift in Sources */,
 				0515723F215327FA00D06DEE /* patient.swift in Sources */,
 				053EA43C213B66470067270E /* Constants.swift in Sources */,
@@ -495,14 +506,11 @@
 				DEVELOPMENT_TEAM = N876F6UP9Q;
 				INFOPLIST_FILE = SignatureMountain/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RefinedSolutionsInc.SignatureMountain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -517,14 +525,11 @@
 				DEVELOPMENT_TEAM = N876F6UP9Q;
 				INFOPLIST_FILE = SignatureMountain/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = RefinedSolutionsInc.SignatureMountain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;

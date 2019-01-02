@@ -130,15 +130,6 @@ class SignatureVC: UIViewController {
         
     }
     
-    func prepareHUD(lightness: SVProgressHUDStyle) {
-        SVProgressHUD.setMaximumDismissTimeInterval(4)
-        SVProgressHUD.setMaximumDismissTimeInterval(4)
-        SVProgressHUD.setDefaultStyle(lightness)
-        SVProgressHUD.setShouldTintImages(false)
-        SVProgressHUD.setFont(UIFont(name: "Avenir Book", size: 24.0)!)
-        SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
-    }
-
     
     @IBAction func signinBtnPressed(_ sender: Any) {
         self.sig.append(" '></path></svg>")
@@ -158,7 +149,7 @@ class SignatureVC: UIViewController {
             self.base64EncodedSig = base64Encoded
             commitSignin() {
                 if let successImage = UIImage(named: "successIndicator") {
-                    self.prepareHUD(lightness: .light)
+                    prepareHUD(lightness: .light)
                     SVProgressHUD.show(successImage, status: "Signin Successful.  Please see front desk now.")
                     
                     self.navigationController?.popToRootViewController(animated: true)
@@ -169,7 +160,7 @@ class SignatureVC: UIViewController {
                 }
             }
         } else {
-            if let failImage = UIImage(named: "failedIndicator") {
+            if let failImage = UIImage(named: "failed") {
                 prepareHUD(lightness: .dark)
                 SVProgressHUD.show(failImage, status: "Signin Failed.  Please see front desk now.")
                 /*

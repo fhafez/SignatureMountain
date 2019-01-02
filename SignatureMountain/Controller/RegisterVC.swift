@@ -23,6 +23,9 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var ClearBtn: UIButton!
     @IBOutlet weak var CancelBtn: UIButton!
     
+    @IBOutlet weak var dateField: UITextField!
+    @IBOutlet var datePicker : UIDatePicker!
+    
     var delegate : StartVC?
 
     @IBAction func abc(_ sender: Any) {
@@ -47,12 +50,28 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
         
         self.title = "REGISTERING"
-                
-        let Tap:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(DismissKeyboard))
-        let DOBTap:UITapGestureRecognizer = UITapGestureRecognizer(target: DOB, action: #selector(DismissKeyboard))
         
-        view.addGestureRecognizer(Tap)
-        DOB.addGestureRecognizer(DOBTap)
+        //Date Picker
+        datePicker = UIDatePicker()
+        datePicker.tag = 100
+        datePicker.datePickerMode = UIDatePicker.Mode.date
+        datePicker.addTarget(self, action: #selector(self.setDate(_sender:)), for: .valueChanged)
+        datePicker.timeZone = TimeZone.current
+        dateField.inputView = datePicker
+        
+    }
+    
+    @objc func setDate(_sender : UIDatePicker){
+        let dateFormatter: DateFormatter = DateFormatter()
+        // Set date format
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        // Apply date format
+        let selectedDate: String = dateFormatter.string(from: _sender.date)
+        print("Selected value \(selectedDate)")
+        if(_sender.tag == 100){
+            dateField.text = "\(selectedDate)"
+        }
+        //self.view.endEditing(true)
     }
     
     @objc func DismissKeyboard() {
@@ -61,44 +80,33 @@ class RegisterVC: UIViewController {
 
     @IBAction func registerBtnPressed(_ sender: Any) {
 
-        SVProgressHUD.setMaximumDismissTimeInterval(5)
-        SVProgressHUD.setMaximumDismissTimeInterval(5)
-        SVProgressHUD.setDefaultStyle(.dark)
-        SVProgressHUD.setShouldTintImages(false)
-        SVProgressHUD.setFont(UIFont(name: "Avenir", size: 24.0)!)
-        SVProgressHUD.setImageViewSize(CGSize(width: 400, height: 400))
-
-        SVProgressHUD.setDefaultStyle(.dark)
+        self.view.endEditing(true)
+        prepareHUD(lightness: .dark)
+        
         SVProgressHUD.show(withStatus: "Registering")
         UIApplication.shared.beginIgnoringInteractionEvents()
 
         if let firstname = FirstName.text {
             if let lastname = LastName.text {
-                let patient = Patient(firstname: firstname, lastname: lastname, dob: DOB.date)
+                let patient = Patient(firstname: firstname, lastname: lastname, dob: dateField.text!)
                 SVProgressHUD.setDefaultStyle(SVProgressHUDStyle.light)
                 do {
                     try patient.save {
                         
-                        if patient.getId() > 0 {
-                            if let successImage = UIImage(named: "successIndicator") {
-                                SVProgressHUD.show(successImage, status: "Registration Successful.  Please sign in now")
-                                UIApplication.shared.endIgnoringInteractionEvents()
-                                //self.delegate?.clearAllFields()
-                                //self.delegate?.dismiss(animated: true, completion: nil)
-                                self.navigationController?.popToRootViewController(animated: true)
-                            }
-                        } else {
-                            if let failImage = UIImage(named: "failedIndicator") {
+                        if patient.getId() > 0, let successImage = UIImage(named: "successIndicator") {
+                            SVProgressHUD.show(successImage, status: "Registration Successful.  Please sign in now")
+                            UIApplication.shared.endIgnoringInteractionEvents()
+                            self.navigationController?.popToRootViewController(animated: true)
+                        } else if let failImage = UIImage(named: "failed") {
                                 SVProgressHUD.show(failImage, status: "Registration Failed.  Perhaps you have registered before?")
                                 UIApplication.shared.endIgnoringInteractionEvents()
-                            }
                         }
                     }
                 } catch (SaveObjectError.mandatoryFieldsNotProvided) {
                     print("Mandatory Fields Not Provided")
-                    if let failImage = UIImage(named: "failedIndicator") {
+                    if let failImage = UIImage(named: "failed") {
                         SVProgressHUD.show(failImage, status: "You must provide a Firstname, Lastname and Date of Birth")
-                        //UIApplication.shared.endIgnoringInteractionEvents()
+                        UIApplication.shared.endIgnoringInteractionEvents()
                     }
                 } catch {
                     print(error)
