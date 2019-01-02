@@ -9,6 +9,8 @@
 import UIKit
 import SwiftyJSON
 import SVProgressHUD
+import ChameleonFramework
+
 
 @IBDesignable
 class DesignableView: UIView {
@@ -351,8 +353,12 @@ class SigninVC: UIViewController, canBeRestarted {
         
         if let pageTitle = _pageTitle {
             self.title = pageTitle
+            if title == "SIGNING IN" {
+                self.navigationController?.navigationBar.backgroundColor = FlatMint()
+            } else {
+                self.navigationController?.navigationBar.backgroundColor = FlatPurple()
+            }
         }
-        //PageTitle.text = _pageTitle
     }
     
     override func didReceiveMemoryWarning() {

@@ -11,6 +11,7 @@ import UIKit
 import SwiftyJSON
 import SVProgressHUD
 import Alamofire
+import ChameleonFramework
 
 class GetDOBVC: UIViewController {
     
@@ -36,6 +37,7 @@ class GetDOBVC: UIViewController {
         dob.backgroundColor = UIColor.white
         dob.setValue(0.9, forKeyPath: "alpha")
         dob.layer.cornerRadius = 20
+        
     }
     
     @IBAction func continueBtnPressed(_ sender: Any) {

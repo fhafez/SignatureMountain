@@ -956,7 +956,7 @@ Register by completing all the fields below and clicking the Register button</st
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vCI-0G-Ues" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" alpha="0.5" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" id="6RV-Nz-Q89">
+                    <navigationBar key="navigationBar" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" id="6RV-Nz-Q89">
                         <rect key="frame" x="0.0" y="20" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
