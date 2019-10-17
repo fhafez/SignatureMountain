@@ -44,23 +44,25 @@ class Patient {
         return _id
     }
     
-    func signout(appointment_id: Int, completed: @escaping DetailsRetrieved) {
+    func signout(appointment_id: Int, patient_id: Int, completed: @escaping DetailsRetrieved) {
         
+        /*
         let dateFormatter = DateFormatter()
         let currentDate:Date = Date()
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let date = dateFormatter.string(from: currentDate)
+        */
         
-        let params: [String: String] = ["client_id": "\(self._id!)", "signout_date": date]
-        let signoutURL = settings["signoutAppointmentURL"]! + "\(appointment_id)"
+        let params: [String: Any] = ["patientID": patient_id]
+        let signoutURL = settings["signoutAppointmentURL"]! //+ "\(appointment_id)"
         
         // register the patient into the DB
 //        let request = Alamofire.request(signoutURL, method: .put, parameters: params, encoding: JSONEncoding.default)
 //        debugPrint(request)
         
-        Alamofire.request(signoutURL, method: .put, parameters: params, encoding: JSONEncoding.default)
+        Alamofire.request(signoutURL, method: .post, parameters: params, encoding: JSONEncoding.default)
             .authenticate(user: settings["user"]!, password: settings["password"]!)
-            .validate()
+           // .validate()
             .responseJSON {
                 response in
                 if response.result.isSuccess {

@@ -93,9 +93,9 @@ class GetDOBVC: UIViewController {
         debugPrint(appointments)
         
         // filter all of today's appointments for the client attempting to sign in
-        let patientAppts = appointments.filter { $0.1["client_id"].intValue == patientModel["id"].intValue }
+        let patientAppts = appointments.filter { $0.1["patientID"].intValue == patientModel["id"].intValue }
         debugPrint("patientAppts \(patientAppts)")
-        if patientAppts.count == 0 {
+        if patientAppts.count == 0 || patientModel["signed_in"] == false {
             // no appointments found for this patient for today
             if let failImage = UIImage(named: "failed") {
                 SVProgressHUD.show(failImage, status: "You are not signed in at the moment")
@@ -106,15 +106,15 @@ class GetDOBVC: UIViewController {
         let firstname = patientModel["firstname"].stringValue
         let lastname = patientModel["lastname"].stringValue
         let dob = patientModel["dob"].stringValue
+        let patientID = patientModel["id"].intValue
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
         if let date = dateFormatter.date(from: dob) {
             
             let patient = Patient(firstname: firstname, lastname: lastname, dob: date)
-            debugPrint(appointments)
             let lastAppt = patientAppts[patientAppts.count-1].1
-            patient.signout(appointment_id: lastAppt["id"].intValue, completed: {
+            patient.signout(appointment_id: lastAppt["id"].intValue, patient_id: patientID, completed: {
                 print("done")
                 if let successImage = UIImage(named: "successIndicator") {
                     SVProgressHUD.show(successImage, status: "Signout Successful.  Thank you")
@@ -122,8 +122,5 @@ class GetDOBVC: UIViewController {
                 }
             })
         }
-
     }
-
-    
 }

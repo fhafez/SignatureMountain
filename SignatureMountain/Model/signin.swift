@@ -16,7 +16,7 @@ class Signin {
     private var _firstname: String!
     private var _lastname: String!
     private var _dob: String!
-    private var _current_datetime: Date!
+    private var _current_datetime: Double!
     private var _sig: String!
     private var _services: [Int] = []
     
@@ -38,7 +38,7 @@ class Signin {
         return _dob
     }
 
-    var currentDatetime: Date {
+    var currentDatetime: Double {
         return _current_datetime
     }
     
@@ -55,15 +55,15 @@ class Signin {
         self._firstname = firstname
         self._lastname = lastname
         
-        let d:Date = Date()
-        self._current_datetime = d
+        //let d:Date = Date()
+        //self._current_datetime = d
     }
     
     init(firstname: String, lastname: String, client_id: Int, current_datetime: Date, sig: String, services: [Int]) {
         self._client_id = client_id
         self._firstname = firstname
         self._lastname = lastname
-        self._current_datetime = current_datetime
+        //self._current_datetime = current_datetime
         self._sig = sig
         self._services = services
     }
@@ -72,11 +72,21 @@ class Signin {
         self._client_id = signinPatient["id"].intValue
         self._firstname = signinPatient["firstname"].stringValue
         self._lastname = signinPatient["lastname"].stringValue
-        self._current_datetime = current_datetime
+        self._dob = signinPatient["dob"].stringValue
+        //self._current_datetime = current_datetime
         self._sig = signinPatient["sig"].stringValue
         self._services = []
     }
     
+    init(signinPatient: JSON, current_datetime: Double) {
+        self._client_id = signinPatient["id"].intValue
+        self._firstname = signinPatient["firstname"].stringValue
+        self._lastname = signinPatient["lastname"].stringValue
+        self._dob = signinPatient["dob"].stringValue
+        self._current_datetime = current_datetime
+        self._sig = signinPatient["sig"].stringValue
+        self._services = []
+    }
     func asJSON() -> JSON {
         
         let df:DateFormatter = DateFormatter()
@@ -85,7 +95,7 @@ class Signin {
         let json:JSON = ["firstname": self._firstname,
                 "lastname": self._lastname,
                 "client_id": _client_id,
-                "current_datetime": df.string(from:_current_datetime),
+                //"current_datetime": df.string(from:_current_datetime),
                 "sig": _sig,
                 "services": _services] as JSON
         
@@ -102,7 +112,7 @@ class Signin {
             "firstname": self._firstname,
             "lastname": self._lastname,
             "client_id": "\(self._client_id!)",
-            "current_datetime": df.string(from:_current_datetime),
+            //"current_datetime": df.string(from:_current_datetime),
             "sig": _sig,
             "services": _services
         ]
@@ -125,12 +135,14 @@ class Signin {
         df.dateFormat = "yyyy-MM-dd HH:mm:ss"
 
         let appointmentData: Parameters = [
-            "client_id": self._client_id,
+            "patientID": self._client_id,
             "firstname": self._firstname,
             "lastname": self._lastname,
+            "dob": self._dob,
             "sig": self._sig,
             "services": self._services,
-            "current_datetime": df.string(from:_current_datetime),
+            //"current_datetime": df.string(from:_current_datetime),
+            "current_datetime": self._current_datetime,
             "signed_in": "true"
         ]
         

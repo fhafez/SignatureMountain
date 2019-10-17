@@ -67,45 +67,48 @@ class SignatureVC: UIViewController {
         smallestX = view.frame.size.width
         smallestY = view.frame.size.height
 
+        drawLogoInTitleBar(uivc: self)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         swiped = false
         if let touch = touches.first {
             //lastPoint = touch.location(in: self.view)
-            lastPoint = touch.location(in: SignatureBoxImageView.inputView)
-            
-            if inPath {
-                sig.append(" '></path> ")
-            }
-            sig.append("<path fill='none' stroke='black' d='M \(lastPoint.x / 3) \(lastPoint.y / 3) ")
-            inPath = true
-            
-            if lastPoint.x < smallestX {
-                smallestX = lastPoint.x
-            }
-            if lastPoint.x > largestX {
-                largestX = lastPoint.x
-            }
-            if lastPoint.y < smallestY {
-                smallestY = lastPoint.y
-            }
-            if lastPoint.y > largestY {
-                largestY = lastPoint.y
-            }
-
+            lastPoint = touch.location(in: SignatureBoxImageView)
+//            if lastPoint.x > 0 && lastPoint.y > 0 && lastPoint.x < SignatureBoxImageView.frame.width && lastPoint.y < SignatureBoxImageView.frame.height {
+                
+                if inPath {
+                    sig.append(" '></path> ")
+                }
+                sig.append("<path fill='none' stroke='black' d='M \(lastPoint.x / 3) \(lastPoint.y / 3) ")
+                inPath = true
+                
+                if lastPoint.x < smallestX {
+                    smallestX = lastPoint.x
+                }
+                if lastPoint.x > largestX {
+                    largestX = lastPoint.x
+                }
+                if lastPoint.y < smallestY {
+                    smallestY = lastPoint.y
+                }
+                if lastPoint.y > largestY {
+                    largestY = lastPoint.y
+                }
+  //          }
         }
     }
     
     func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
         
         // 1
-        UIGraphicsBeginImageContext(view.frame.size)
-        //UIGraphicsBeginImageContext(SignatureBoxImageView.frame.size)
+        //UIGraphicsBeginImageContext(view.frame.size)
+        UIGraphicsBeginImageContext(SignatureBoxImageView.frame.size)
         let context = UIGraphicsGetCurrentContext()
         
-        SignatureBoxImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-        
+        //SignatureBoxImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        SignatureBoxImageView.image?.draw(in: CGRect(x: 0, y: 0, width: SignatureBoxImageView.frame.size.width, height: SignatureBoxImageView.frame.size.height))
+
         // 2
         context?.move(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
         context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
@@ -175,7 +178,7 @@ class SignatureVC: UIViewController {
     func commitSignin(completed: @escaping DetailsRetrieved) {
         
         let connectionAlert: UIAlertController = UIAlertController(title: "Issue", message: "Connection Failure", preferredStyle: .alert)
-        let appointmentModel: Signin = Signin(signinPatient: signinModel, current_datetime: Date())
+        let appointmentModel: Signin = Signin(signinPatient: signinModel, current_datetime: Date().timeIntervalSince1970.rounded())
         let params: Parameters = appointmentModel.createAppointment(sig: self.base64EncodedSig, services: [])
         debugPrint(params)
         debugPrint(base64EncodedSig)
@@ -201,7 +204,8 @@ class SignatureVC: UIViewController {
         swiped = true
         if let touch = touches.first {
             //let currentPoint = touch.location(in:view)
-            let currentPoint = touch.location(in:SignatureBoxImageView.inputView)
+            //let currentPoint = touch.location(in:SignatureBoxImageView.inputView)
+            let currentPoint = touch.location(in:SignatureBoxImageView)
             drawLineFrom(fromPoint: lastPoint, toPoint: currentPoint)
             points.append(currentPoint)
             

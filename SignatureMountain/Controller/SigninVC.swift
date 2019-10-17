@@ -259,9 +259,7 @@ class SigninVC: UIViewController, canBeRestarted {
                 
                 if matchingModels.count() == 0 {
                     print("no patients found with those names")
-                    if let failImage = UIImage(named: "failed") {
-                        SVProgressHUD.show(failImage, status: "No patient with that name found")
-                    }
+                    showFailedDialog(message: "No patient with that name found")
                 } else if matchingModels.count() > 1 {
                     print("more than 1 patient found matching those names")
                     SVProgressHUD.dismiss()
@@ -284,7 +282,6 @@ class SigninVC: UIViewController, canBeRestarted {
                         (appointments:JSON?, error:Error?) in
                         if error == nil, let appts = appointments {
                             self.signoutPatient(patientModel: matchingModels, appointments: appts)
-                            debugPrint("done getting today's appointments")
                         } else {
                             debugPrint("an error occurred: \(error!)")
                             self.ifMessages.displayErrorMessageDialog(current: self, title: "Signout Failed", msg: "An error occured.  See Reception")
@@ -298,41 +295,35 @@ class SigninVC: UIViewController, canBeRestarted {
     func signoutPatient(patientModel: MatchingModels, appointments: JSON) {
         
         if patientModel.signedIn() == false {
-            if let failImage = UIImage(named: "failed") {
-                SVProgressHUD.show(failImage, status: "You are not signed in at the moment")
-            }
+            showFailedDialog(message: "You are not signed in at the moment")
         } else {
             
             // filter out the appointments that include the client_id of this patient
             debugPrint(appointments)
+            debugPrint(patientModel.asJSON()["client_id"])
             
-            let patientAppts = appointments.filter { $0.1["client_id"].intValue == patientModel.asJSON()["client_id"].intValue }
+            let patientAppts = appointments.filter { $0.1["patientID"].intValue == patientModel.asJSON()["client_id"].intValue }
             debugPrint(patientAppts)
+            
             if patientAppts.count == 0 {
-                if let failImage = UIImage(named: "failed") {
-                    SVProgressHUD.show(failImage, status: "You are not signed in at the moment")
-                }
-                return
+                // no appointments found for this patient for today
+                showFailedDialog(message: "You are not signed in at the moment")
             }
             
             let firstname = patientModel.asJSON()["firstname"].stringValue
             let lastname = patientModel.asJSON()["lastname"].stringValue
             let dob = patientModel.asJSON()["dob"].stringValue
+            let patientID = patientModel.asJSON()["client_id"].intValue
 
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
+            
             if let date = dateFormatter.date(from: dob) {
-
                 let patient = Patient(firstname: firstname, lastname: lastname, dob: date)
-                debugPrint(appointments)
                 let lastAppt = patientAppts[patientAppts.count-1].1
-                patient.signout(appointment_id: lastAppt["id"].intValue, completed: {
-                    print("done")
-                    if let successImage = UIImage(named: "successIndicator") {
-                        self.clearAllFields()
-                        SVProgressHUD.show(successImage, status: "Signout Successful.  Thank you")
-                        self.navigationController?.popToRootViewController(animated: true)
-                    }
+                patient.signout(appointment_id: lastAppt["id"].intValue, patient_id: patientID, completed: {
+                    self.clearAllFields()
+                    showSuccessDialog(message: "Signout Successful.  Thank you", thisView: self)
                 })
             }
         }
@@ -359,6 +350,8 @@ class SigninVC: UIViewController, canBeRestarted {
                 self.navigationController?.navigationBar.backgroundColor = FlatPurple()
             }
         }
+        
+        drawLogoInTitleBar(uivc: self)
     }
     
     override func didReceiveMemoryWarning() {

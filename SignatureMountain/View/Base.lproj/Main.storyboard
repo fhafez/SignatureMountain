@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vCI-0G-Ues">
-    <device id="ipad9_7" orientation="landscape">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vCI-0G-Ues">
+    <device id="ipad9_7" orientation="landscape" layout="fullscreen" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +24,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signinBG2" translatesAutoresizingMaskIntoConstraints="NO" id="prX-bC-EaR">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prX-bC-EaR">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.71408420139999995" green="0.049002488740000003" blue="0.2425642449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="de8-3b-Tfu" userLabel="Name Stack">
                                 <rect key="frame" x="72" y="175" width="880" height="72"/>
@@ -41,7 +39,6 @@
                                             <constraint firstAttribute="height" constant="72" id="vA7-Pu-ic7" userLabel="height = 90"/>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="ztq-vj-zhc"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="40"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <userDefinedRuntimeAttributes>
@@ -57,7 +54,6 @@
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="9Bp-PU-KGe"/>
                                             <constraint firstAttribute="height" constant="72" id="BFh-dq-L4Y" userLabel="height = 90"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="40"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                         <userDefinedRuntimeAttributes>
@@ -183,10 +179,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signinBG2" translatesAutoresizingMaskIntoConstraints="NO" id="bOb-mh-foA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOb-mh-foA">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.71408420139999995" green="0.049002488740000003" blue="0.2425642449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleAspectFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="K2q-hw-5HS">
                                 <rect key="frame" x="52" y="290.5" width="920" height="187"/>
@@ -202,7 +198,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                                 <state key="normal" title="SIGN IN">
-                                                    <color key="titleColor" red="0.71764705880000002" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.99908262491226196" green="0.8430904746055603" blue="0.011094676330685616" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -230,7 +226,7 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-9V-VSh">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ddF-9V-VSh" userLabel="Signout Stack View">
                                         <rect key="frame" x="310" y="0.0" width="300" height="187"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c6d-Qc-66I" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
@@ -241,7 +237,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                                 <state key="normal" title="SIGN OUT">
-                                                    <color key="titleColor" red="0.71764705880000002" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.99607843139999996" green="0.79215686269999996" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -277,7 +273,7 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                                 <state key="normal" title="REGISTER">
-                                                    <color key="titleColor" red="0.71764705880000002" green="0.81176470590000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.99607843139999996" green="0.79215686269999996" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -327,6 +323,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="A9s-aX-72f"/>
                     <connections>
+                        <outlet property="abc" destination="ddF-9V-VSh" id="FQc-aR-q9a"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="gotoSigninout" id="5T3-Ya-0M0"/>
                         <segue destination="o9W-kC-Gnn" kind="show" identifier="gotoRegister" id="fxM-oV-wcw"/>
                     </connections>
@@ -343,20 +340,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signinBG2" translatesAutoresizingMaskIntoConstraints="NO" id="gi7-ob-PoU" userLabel="Background">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gi7-ob-PoU" userLabel="Background">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.71408420139999995" green="0.049002488740000003" blue="0.2425642449" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
-                            <datePicker clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXA-2W-vB9">
-                                <rect key="frame" x="352" y="190" width="320" height="216"/>
+                            <datePicker clipsSubviews="YES" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AXA-2W-vB9">
+                                <rect key="frame" x="352" y="170" width="320" height="216"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <date key="date" timeIntervalSinceReferenceDate="-799188977.16709137">
                                     <!--1975-09-05 03:03:42 +0000-->
                                 </date>
                             </datePicker>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="YNH-iY-bqm">
-                                <rect key="frame" x="402" y="456" width="220" height="80"/>
+                                <rect key="frame" x="402" y="436" width="220" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uvG-Wm-PNM" userLabel="SigninBtn" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="220" height="80"/>
@@ -365,9 +362,7 @@
                                             <constraint firstAttribute="width" constant="220" id="B08-v5-IfE"/>
                                             <constraint firstAttribute="height" constant="80" id="hxh-f8-Fyg"/>
                                         </constraints>
-                                        <state key="normal" image="NextButtonTextOnly" backgroundImage="NextButtonTextOnly">
-                                            <color key="titleColor" red="0.71764705882352942" green="0.81176470588235294" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
+                                        <state key="normal" image="NextButtonTextOnly" backgroundImage="NextButtonTextOnly"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="40"/>
@@ -389,9 +384,9 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please provide your date of birth" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OPx-vR-fGI">
-                                <rect key="frame" x="322" y="130" width="380" height="28"/>
+                                <rect key="frame" x="322" y="110" width="380" height="28"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.79215686269999996" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -425,19 +420,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signinBG2" translatesAutoresizingMaskIntoConstraints="NO" id="ke0-fl-gAn" userLabel="Background">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ke0-fl-gAn" userLabel="Background">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Sign Below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bEy-WT-3qL">
-                                <rect key="frame" x="333.5" y="110" width="357.5" height="46.5"/>
+                                <rect key="frame" x="333.5" y="90" width="357.5" height="46.5"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
-                                <color key="textColor" red="0.78536194560000006" green="0.90965777640000001" blue="0.91372877360000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.79215686269999996" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a0G-LD-sU9" userLabel="SignatureBox">
-                                <rect key="frame" x="40" y="176.5" width="944" height="450"/>
+                                <rect key="frame" x="40" y="156.5" width="944" height="450"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="450" id="4mE-wI-7is"/>
@@ -456,7 +451,7 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                         <state key="normal" title="Sign In">
-                                            <color key="titleColor" red="0.97647058819999999" green="0.84705882349999995" blue="0.76470588240000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.99607843139999996" green="0.79215686269999996" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -541,9 +536,14 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fem-eN-fLW" userLabel="SignatureInputView">
+                                <rect key="frame" x="40" y="163" width="944" height="435"/>
+                            </imageView>
                         </subviews>
                         <constraints>
+                            <constraint firstItem="fem-eN-fLW" firstAttribute="top" secondItem="bEy-WT-3qL" secondAttribute="bottom" constant="26.5" id="1m9-gP-xw3"/>
                             <constraint firstItem="a0G-LD-sU9" firstAttribute="centerX" secondItem="4LS-R2-CZf" secondAttribute="centerX" id="AiA-HZ-P06"/>
+                            <constraint firstItem="fem-eN-fLW" firstAttribute="leading" secondItem="96O-kU-40R" secondAttribute="leading" constant="40" id="Nrb-m5-As0"/>
                             <constraint firstItem="a0G-LD-sU9" firstAttribute="top" secondItem="bEy-WT-3qL" secondAttribute="bottom" constant="20" id="Nvp-hD-xML"/>
                             <constraint firstItem="96O-kU-40R" firstAttribute="trailing" secondItem="a0G-LD-sU9" secondAttribute="trailing" constant="40" id="P17-RZ-TEn"/>
                             <constraint firstItem="96O-kU-40R" firstAttribute="bottom" secondItem="H4R-DD-JPZ" secondAttribute="bottom" constant="30" id="WNX-l9-49O"/>
@@ -551,7 +551,9 @@
                             <constraint firstItem="96O-kU-40R" firstAttribute="trailing" secondItem="H4R-DD-JPZ" secondAttribute="trailing" constant="100" id="eBA-UU-gf2"/>
                             <constraint firstItem="bEy-WT-3qL" firstAttribute="top" secondItem="96O-kU-40R" secondAttribute="top" constant="40" id="hcI-yf-ZBf"/>
                             <constraint firstItem="H4R-DD-JPZ" firstAttribute="leading" secondItem="96O-kU-40R" secondAttribute="leading" constant="100" id="lHF-dy-Svr"/>
+                            <constraint firstItem="96O-kU-40R" firstAttribute="trailing" secondItem="fem-eN-fLW" secondAttribute="trailing" constant="40" id="nLj-w1-4Fz"/>
                             <constraint firstItem="a0G-LD-sU9" firstAttribute="leading" secondItem="96O-kU-40R" secondAttribute="leading" constant="40" id="ro7-sL-MrY"/>
+                            <constraint firstItem="H4R-DD-JPZ" firstAttribute="top" secondItem="fem-eN-fLW" secondAttribute="bottom" constant="60" id="svA-n5-f1c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="96O-kU-40R"/>
                         <userDefinedRuntimeAttributes>
@@ -582,32 +584,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="Registration" image="signinBG2" translatesAutoresizingMaskIntoConstraints="NO" id="Cm6-bs-YHQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="Registration" translatesAutoresizingMaskIntoConstraints="NO" id="Cm6-bs-YHQ">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" semanticContentAttribute="spatial" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="headTruncation" numberOfLines="2" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wue-ju-klh">
-                                <rect key="frame" x="47.5" y="90" width="929" height="64.5"/>
+                                <rect key="frame" x="47.5" y="70" width="929" height="63.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="929" id="H7I-kc-fa4"/>
                                 </constraints>
                                 <string key="text">Don't have an account?
 Register by completing all the fields below and clicking the Register button</string>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="24"/>
-                                <color key="textColor" red="0.92941176470588238" green="0.99607843137254903" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.99607843139999996" green="0.79215686269999996" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <size key="shadowOffset" width="0.0" height="1"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="kpy-t6-3pT" userLabel="Names Stack View">
-                                <rect key="frame" x="177" y="164.5" width="670" height="80"/>
+                                <rect key="frame" x="177" y="143.5" width="670" height="80"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Firstname" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nvB-0U-lc4" customClass="DesignableTextField" customModule="SignatureMountain" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="2eP-cb-Ezm"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="40"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                         <userDefinedRuntimeAttributes>
@@ -621,7 +623,6 @@ Register by completing all the fields below and clicking the Register button</st
                                         <constraints>
                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="320" id="HMu-md-TX3"/>
                                         </constraints>
-                                        <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="40"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                         <userDefinedRuntimeAttributes>
@@ -636,7 +637,7 @@ Register by completing all the fields below and clicking the Register button</st
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="rjh-hh-xpG" userLabel="Buttons Stack View">
-                                <rect key="frame" x="392" y="384.5" width="240" height="80"/>
+                                <rect key="frame" x="392" y="363.5" width="240" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAs-ef-HxW" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="240" height="80"/>
@@ -648,7 +649,7 @@ Register by completing all the fields below and clicking the Register button</st
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                         <size key="titleShadowOffset" width="6" height="7"/>
                                         <state key="normal" title="Register">
-                                            <color key="titleColor" red="0.92941176470588238" green="0.99607843137254903" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.99607843139999996" green="0.79215686269999996" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -702,7 +703,7 @@ Register by completing all the fields below and clicking the Register button</st
                                         <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="40"/>
                                         <size key="titleShadowOffset" width="6" height="7"/>
                                         <state key="normal" title="Cancel">
-                                            <color key="titleColor" red="0.92941176470588238" green="0.99607843137254903" blue="0.77647058823529413" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="titleColor" red="0.99607843139999996" green="0.79215686269999996" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
                                         <connections>
                                             <action selector="cancelBtnPressed:" destination="o9W-kC-Gnn" eventType="touchUpInside" id="CjV-Gk-gfO"/>
@@ -714,12 +715,11 @@ Register by completing all the fields below and clicking the Register button</st
                                 </constraints>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date of Birth" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jHY-yV-ldP">
-                                <rect key="frame" x="312" y="274.5" width="400" height="80"/>
+                                <rect key="frame" x="312" y="253.5" width="400" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="80" id="2eK-Go-DXe"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="400" id="IaU-mC-bZV"/>
                                 </constraints>
-                                <nil key="textColor"/>
                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="36"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
@@ -755,7 +755,7 @@ Register by completing all the fields below and clicking the Register button</st
             <objects>
                 <viewController id="teD-KQ-nCh" customClass="SettingsVC" customModule="SignatureMountain" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="rtc-iU-Nwm">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="712" height="728"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="signinBG" translatesAutoresizingMaskIntoConstraints="NO" id="4Gl-0b-Kpl" userLabel="Background">
@@ -763,13 +763,13 @@ Register by completing all the fields below and clicking the Register button</st
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="q2h-OS-6jc">
-                                <rect key="frame" x="312" y="170" width="400" height="120.5"/>
+                                <rect key="frame" x="156" y="150" width="400" height="166"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="j8q-dA-yxZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Base URL" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQi-T0-TKz" customClass="PaddingLabel" customModule="SignatureMountain" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="ahn-Jj-bwO"/>
@@ -779,18 +779,17 @@ Register by completing all the fields below and clicking the Register button</st
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1iC-JJ-8ti">
-                                                <rect key="frame" x="125" y="0.0" width="275" height="33.5"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="125" y="0.0" width="275" height="34"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="url"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CcP-S4-QyS">
-                                        <rect key="frame" x="0.0" y="43.5" width="400" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="44" width="400" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lh9-Lj-rae" customClass="DesignableLabel" customModule="SignatureMountain" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="2Wc-mL-bjc"/>
@@ -817,18 +816,17 @@ Register by completing all the fields below and clicking the Register button</st
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gdT-EW-80c">
-                                                <rect key="frame" x="125" y="0.0" width="275" height="33.5"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="125" y="0.0" width="275" height="34"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="username"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6TQ-Sq-M6H">
-                                        <rect key="frame" x="0.0" y="87" width="400" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="88" width="400" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MsF-uv-oJX" customClass="DesignableLabel" customModule="SignatureMountain" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="34"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="VIG-xU-jC2"/>
@@ -855,11 +853,24 @@ Register by completing all the fields below and clicking the Register button</st
                                                 </userDefinedRuntimeAttributes>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GJ5-fp-u53">
-                                                <rect key="frame" x="125" y="0.0" width="275" height="33.5"/>
-                                                <nil key="textColor"/>
+                                                <rect key="frame" x="125" y="0.0" width="275" height="34"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                                             </textField>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="nyA-uv-bYd">
+                                        <rect key="frame" x="0.0" y="132" width="400" height="34"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0WL-QS-13P">
+                                                <rect key="frame" x="0.0" y="0.0" width="51" height="34"/>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hide signout button" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBI-Se-e1h">
+                                                <rect key="frame" x="72" y="0.0" width="328" height="34"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -868,7 +879,7 @@ Register by completing all the fields below and clicking the Register button</st
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999998807907104" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SETTINGS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tY6-0u-LCX">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="712" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Zyi-TO-Dvl"/>
@@ -884,7 +895,7 @@ Register by completing all the fields below and clicking the Register button</st
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5DL-Vd-ruR">
-                                <rect key="frame" x="77" y="698" width="870.5" height="50"/>
+                                <rect key="frame" x="-79.5" y="658" width="871" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="9fa-zQ-jVO"/>
                                 </constraints>
@@ -894,7 +905,7 @@ Register by completing all the fields below and clicking the Register button</st
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0EH-qk-KHP" customClass="DesignableButton" customModule="SignatureMountain" customModuleProvider="target">
-                                <rect key="frame" x="365" y="458" width="294" height="40"/>
+                                <rect key="frame" x="209" y="418" width="294" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                 <state key="normal" title="    Reload Configuration    ">
@@ -944,6 +955,7 @@ Register by completing all the fields below and clicking the Register button</st
                     <connections>
                         <outlet property="baseURL" destination="1iC-JJ-8ti" id="SMO-9z-xCI"/>
                         <outlet property="password" destination="GJ5-fp-u53" id="hf2-OL-98y"/>
+                        <outlet property="signoutEnabledSwitch" destination="0WL-QS-13P" id="uUW-oF-bag"/>
                         <outlet property="username" destination="gdT-EW-80c" id="rsj-PA-DxD"/>
                     </connections>
                 </viewController>
@@ -957,7 +969,7 @@ Register by completing all the fields below and clicking the Register button</st
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vCI-0G-Ues" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" id="6RV-Nz-Q89">
-                        <rect key="frame" x="0.0" y="20" width="1024" height="50"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="50"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="36"/>
@@ -977,10 +989,9 @@ Register by completing all the fields below and clicking the Register button</st
         <image name="NextButtonTextOnly" width="440" height="180"/>
         <image name="gear" width="612" height="612"/>
         <image name="signinBG" width="2048" height="1536"/>
-        <image name="signinBG2" width="2048" height="1536"/>
         <image name="white_left_arrow" width="612" height="612"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="79H-mk-RdJ"/>
+        <segue reference="Dn8-ty-vIH"/>
     </inferredMetricsTieBreakers>
 </document>

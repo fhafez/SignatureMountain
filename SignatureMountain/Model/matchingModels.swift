@@ -96,6 +96,7 @@ class MatchingModels {
     }
     
     func getJSONMatchingPatients() -> JSON {
+        self._jsonMatchingPatients[0]["patientID"] = self._jsonMatchingPatients["id"]
         debugPrint(_jsonMatchingPatients)
         return self._jsonMatchingPatients
     }

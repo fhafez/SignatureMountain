@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             baseURLValue = settingsDict["baseURL"] as! String
             username = settingsDict["user"] as! String
             password = settingsDict["password"] as! String
-
+/*
             settings["baseURL"] = baseURLValue
             settings["user"] = username
             settings["password"] = password
@@ -37,6 +37,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             settings["registerPatientURL"] = "\(baseURLValue)php/registerJS.php/"
             settings["todaysAppointmentsURL"] = "\(baseURLValue)php/signinJS.php/appointments/"
             settings["signoutAppointmentURL"] = "\(baseURLValue)php/signinJS.php/"
+ */
+            
+            
+            settings["baseURL"] = baseURLValue
+            settings["user"] = username
+            settings["password"] = password
+ 
+            
+            //settings["commitSigninURL"] = "\(baseURLValue)php/signinJS.php/"
+            settings["commitSigninURL"] = "\(baseURLValue)createAppointment"
+            //settings["matchPatientsURL"] = "\(baseURLValue)php/matchPatients.php/"
+            settings["matchPatientsURL"] = "\(baseURLValue)getPatients"
+            settings["registerPatientURL"] = "\(baseURLValue)php/registerJS.php/"
+            settings["todaysAppointmentsURL"] = "\(baseURLValue)php/signinJS.php/appointments/"
+            settings["signoutAppointmentURL"] = "\(baseURLValue)php/signinJS.php/aaa"
         }
         
         return true

@@ -36,6 +36,7 @@ class SettingsVC: UIViewController {
     @IBOutlet weak var baseURL: UITextField!
     @IBOutlet weak var username: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var signoutEnabledSwitch: UISwitch!
     
     @IBAction func backBtnPressed(_ sender: Any) {
         
@@ -45,11 +46,21 @@ class SettingsVC: UIViewController {
             settings["baseURL"] = baseURLValue
             settings["user"] = self.username.text
             settings["password"] = self.password.text
-            settings["commitSigninURL"] = "\(baseURLValue)php/signinJS.php/"
-            settings["matchPatientsURL"] = "\(baseURLValue)php/matchPatients.php/"
+//            settings["commitSigninURL"] = "\(baseURLValue)php/signinJS.php/"
+            settings["commitSigninURL"] = "\(baseURLValue)createAppointment"
+//            settings["matchPatientsURL"] = "\(baseURLValue)php/matchPatients.php/"
+            settings["matchPatientsURL"] = "\(baseURLValue)getPatients"
             settings["registerPatientURL"] = "\(baseURLValue)php/registerJS.php/"
-            settings["todaysAppointmentsURL"] = "\(baseURLValue)php/signinJS.php/appointments/"
-            settings["signoutAppointmentURL"] = "\(baseURLValue)php/signinJS.php/aaa"
+            settings["todaysAppointmentsURL"] = "\(baseURLValue)listAppointments"
+            settings["signoutAppointmentURL"] = "\(baseURLValue)signout"
+            
+            if signoutEnabledSwitch.isOn {
+                settings["signoutDisabled"] = "true"
+            } else {
+                settings["signoutDisabled"] = "false"
+            }
+            
+            print(settings)
             
             defaults.set(settings, forKey: "settings")
         }
@@ -61,10 +72,20 @@ class SettingsVC: UIViewController {
     override func viewDidLoad() {
         // nothing yet
         
+        super.viewDidLoad()
+        
+        print("viewdidload")
         if let settingsDict = defaults.dictionary(forKey: "settings") {
             baseURL.text = settingsDict["baseURL"] as? String
             username.text = settingsDict["user"] as? String
             password.text = settingsDict["password"] as? String
+            let signoutDisabled = settingsDict["signoutDisabled"] as? String
+            
+            if signoutDisabled == "true" {
+                signoutEnabledSwitch.isOn = true
+            } else {
+                signoutEnabledSwitch.isOn = false
+            }
         }
         
     }

@@ -14,6 +14,7 @@ class StartVC: UIViewController {
     var _direction: String?
     
     let defaults = UserDefaults.standard
+    @IBOutlet weak var abc: UIStackView!
     
     @IBAction func gotoSignin(_ sender: Any) {
         _direction = "in"
@@ -31,6 +32,26 @@ class StartVC: UIViewController {
 
     override func viewDidLoad() {
         // nothing yet
+        super.viewDidLoad()
+        
+        print(NSHomeDirectory())
+        drawLogoInTitleBar(uivc: self)
+        print(settings)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if let settingsDict = defaults.dictionary(forKey: "settings") {
+            let signoutDisabled = settingsDict["signoutDisabled"] as? String
+            if signoutDisabled == "true" {
+                abc.isHidden = true
+            } else {
+                abc.isHidden = false
+            }
+        }
+
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
